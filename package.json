@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "npm run compile && nodemon ./bin/www",
+    "compile" : "node services/compileSCSS.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -13,6 +14,7 @@
     "http-errors": "~1.6.3",
     "mongoose": "^6.2.8",
     "morgan": "~1.9.1",
+    "node-sass": "^7.0.1",
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
