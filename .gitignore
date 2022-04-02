@@ -56,9 +56,10 @@ typings/
 
 # dotenv environment variables file
 
-
 # next.js build output
 .next
 
-
 testdb
+
+#public/styles
+public/styles
