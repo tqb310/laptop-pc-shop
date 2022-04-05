@@ -1,3 +1,9 @@
+.h4 {
+    @include Typography(1.8rem, 600);
+}
+.h5 {
+    @include Typography(1.6rem, 600);
+}
 .body1 {
     @include Typography(1.5rem, 500);
 }
