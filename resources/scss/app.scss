@@ -1,8 +1,15 @@
+// base
+@import 'base/_reset.scss';
+@import 'base/_common.scss';
+
+// abstract
 @import 'abstracts/_mixins.scss';
 @import 'abstracts/_variables.scss';
 @import 'abstracts/_colors';
 
+// partials
 @import 'partials/_header.scss';
 @import 'partials/_footer.scss';
 
+//pages
 @import 'pages/_login.scss';

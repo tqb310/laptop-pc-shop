@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "start": "nodemon ./bin/www",
-        "watch": "sass --watch resources/scss:public/styles"
+        "watch": "sass --watch resources/scss:public/styles --style compressed"
     },
     "dependencies": {
         "cookie-parser": "~1.4.4",

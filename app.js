@@ -15,7 +15,10 @@ var app = express();
 //     .getAllView('./views')
 //     .map((p) => path.join(__dirname, p)),
 // );
-app.set('views', path.join(__dirname, './resources/views'));
+app.set(
+    'views',
+    path.join(__dirname, 'resources', 'views'),
+);
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
