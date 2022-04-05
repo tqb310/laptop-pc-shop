@@ -1,0 +1,85 @@
+// @use '../abstracts' as abs;
+
+.header {
+    background-color: $primary-color;
+    color: #fff;
+    height: 120px;
+    &__aside {
+        font-size: 1.35rem;
+        height: 40px;
+        &-nav {
+            height: 100%;
+            &-item {
+                a {
+                    line-height: 40px;
+                    padding: 0 1.2rem;
+                    display: inline-block;
+                    color: white;
+                    &:hover {
+                        color: $secondary-color;
+                    }
+                }
+            }
+        }
+    }
+    .dropdown-divider {
+        background-color: rgba($color: #fff, $alpha: 0.3);
+    }
+    &__main {
+        height: calc(100% - 40px);
+        &-search {
+            width: 500px;
+            &-wrapper {
+                background-color: #fff;
+                height: 40px;
+                padding: 0 0.5rem 0 2rem;
+                input {
+                    outline: none;
+                    border: none;
+                    font-size: 1.3rem;
+                    width: 90%;
+                }
+                button {
+                    height: 80%;
+                    width: 60px;
+                    font-size: 1.4rem;
+                    color: #fff;
+                }
+            }
+        }
+        &-hotline {
+            &-info {
+                .subtitle2 {
+                    color: #ffdada;
+                    span {
+                        font-weight: 600;
+                        color: $secondary-color;
+                    }
+                }
+            }
+        }
+        &-cart {
+            display: block;
+            color: white;
+            &:hover {
+                color: white;
+            }
+            &-info {
+                .subtitle2 {
+                    color: #ffdada;
+                }
+            }
+        }
+        &-hotline,
+        &-cart {
+            &-icon {
+                border: 2px solid #fff;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                line-height: 35px;
+            }
+        }
+    }
+}
