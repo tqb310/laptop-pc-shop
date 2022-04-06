@@ -14,6 +14,10 @@
 
 //components
 @import 'components/_typography.scss';
+@import 'components/_breadcrumb.scss';
+@import 'components/_button.scss';
+@import 'components/_form.scss';
 
 //pages
 @import 'pages/_login.scss';
+@import 'pages/_register.scss';

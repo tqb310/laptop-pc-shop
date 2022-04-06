@@ -1,8 +1,12 @@
 const route = require('express').Router();
-const URL = 'auth';
+const URL = 'account';
 
-route.get('/', (req, res) => {
+route.get('/login', (req, res) => {
     res.render('login');
+});
+
+route.get('/register', (req, res) => {
+    res.render('register');
 });
 
 module.exports = {

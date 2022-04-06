@@ -1,0 +1,19 @@
+.breadcrumb {
+    align-items: center;
+    margin: 0;
+    &-item {
+        font-size: 1.4rem;
+        user-select: none;
+        a {
+            padding: 2rem 0;
+            display: inline-block;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+        &.active {
+            color: $primary-color;
+            font-weight: 500;
+        }
+    }
+}
