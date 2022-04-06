@@ -2,11 +2,11 @@ const route = require('express').Router();
 const URL = 'account';
 
 route.get('/login', (req, res) => {
-    res.render('login');
+    res.render('pages/login');
 });
 
 route.get('/register', (req, res) => {
-    res.render('register');
+    res.render('pages/register');
 });
 
 module.exports = {
