@@ -1,8 +1,30 @@
-const Category = require('../models/Category')
+const Product = require("../models/Product");
 
-exports.addProductToCategory = async (categoryId, product)=>{
-    const category = await Category.findById(categoryId)
-    if(!category) return false;
-    category.product.push(product)
-    return true
-}
+/**
+ *
+ * @param {*} categoryId find by category id. if there is no id, it will find all products
+ * @returns list of product
+ */
+exports.getAllProduct = async (categoryId = null) => {
+  return (products = await Product.find(categoryId ? {} : { categoryId }));
+};
+
+exports.getProductById = async (id) => {
+  return (products = await Product.findById(id));
+};
+
+/**
+ *
+ * @param {*} categoryId Category id that product belong to
+ * @param {*} product
+ */
+exports.addProductToCategory = async (categoryId, product) => {
+  Product.create({
+    category_id: categoryId,
+    ...product,
+  });
+};
+
+exports.updateProduct = async (id, option) => {
+  Product.findByIdAndUpdate(id,option);
+};
