@@ -1,0 +1,16 @@
+.login {
+    nav {
+        border-bottom: 1px solid #eee;
+    }
+    &__form {
+        padding: 3rem 0;
+        .h4 {
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        .btn {
+            padding: 0.8rem 1.5rem;
+            margin-top: 2.5rem;
+        }
+    }
+}

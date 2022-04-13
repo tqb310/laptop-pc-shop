@@ -1,0 +1,35 @@
+extends ../../layouts/main
+
+block content
+    .login
+        nav(aria-label='breadcrumb')
+            .container
+                ol.breadcrumb
+                    li.breadcrumb-item
+                        a(href='#') Trang chủ            
+                    li.breadcrumb-item.active(aria-current='page') Đăng nhập tài khoản
+        .login__form
+            .container
+                p.h4.mb-4 Đăng nhập tài khoản
+                .row
+                    .col-6.pe-4
+                        p.mb-4 Nếu bạn đã có tài khoản, đăng nhập tại đây.
+                        form(action="#", method="POST")
+                            .mb-3
+                                label(class="form-label", for="login-email") Email
+                                input(type="email", class="form-control", id="login-email", name="email", placeholder="Email")
+                            .mb-3
+                                label(class="form-label", for="login-password") Mật khẩu
+                                input(type="password", class="form-control", id="login-password", name="password", placeholder="Mật khẩu")
+                            button.btn.btn-ct-primary Đăng nhập
+                            a(href="/account/register", class="btn btn-link") Đăng ký
+                    .col-6.ps-4
+                        p.mb-4 Bạn quên mật khẩu? Nhập địa chỉ email để lấy lại mật khẩu qua email.
+                        form(action="#", method="POST")
+                            .mb-3
+                                label(class="form-label", for="forget-email") Email
+                                input(type="email", class="form-control", id="forget-email", name="email", placeholder="Email")
+                            button.btn.btn-ct-primary Lấy lại mật khẩu
+                           
+
+

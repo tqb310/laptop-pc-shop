@@ -1,0 +1,7 @@
+@mixin Typography($fontSize, $fontWeight) {
+    font: {
+        size: $fontSize;
+        weight: $fontWeight;
+    }
+    // line-height: $lineHeight;
+}

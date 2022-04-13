@@ -1,0 +1,27 @@
+.navigation-bar {
+    background-color: #393a44;
+    user-select: none;
+    &__list {
+        &-item {
+            a {
+                color: #fff;
+                padding: 2rem 3rem;
+                display: inline-block;
+            }
+            &:first-child {
+                background-color: $secondary-color;
+                a {
+                    @include Typography(1.8rem, 600);
+                }
+            }
+            &:not(:first-child) {
+                a {
+                    text-transform: uppercase;
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+}

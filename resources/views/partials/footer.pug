@@ -1,0 +1,77 @@
+- var footerContent = [{title: 'Giới thiệu', items: ['Trang chủ','Về shop','Điều khoản giao dịch','Bảo mật thông tin','Tuyển dụng']}, {title: 'Chính sách công ty', items: ['Chính sách giao nhận','Chính sách đổi trả hàng','Phương thức thanh toán','Hướng dẫn trả góp','Chế độ bảo hành']}]
+footer.footer
+        .footer-main
+            .container
+                .row
+                    each col in footerContent
+                        .col-3
+                            p.h5.mb-4.footer-main__title= col.title
+                            ul.footer-main__list
+                                each row in col.items
+                                    li.footer-main__list-item
+                                        a(href="#", class="subtitle2")= row
+                    .col-3
+                        p.h5.mb-4.footer-main__title Hỗ trợ khách hàng
+                        ul.footer-main__list
+                            li.footer-main__list-item
+                                a(href="#", class="subtitle2") Bảo hành:
+                                    span  (028) 7301 3879
+                            li.footer-main__list-item
+                                a(href="#", class="subtitle2") Hotline bảo hành tại HCM:
+                                    span  0703 305 350
+                            li.footer-main__list-item
+                                a(href="#", class="subtitle2") Gửi yêu cầu bảo hành
+                            li.footer-main__list-item
+                                a(href="#", class="subtitle2") Gửi yêu cầu đổi hàng
+                    .col-3
+                        p.h5.mb-4.footer-main__title CTY TNHH DỊCH VỤ TIN HỌC SIÊU TỐC
+                        ul.footer-main__list
+                            li.mb-4.footer-main__list-item
+                                a(href="#", class="subtitle2") 
+                                    p Trụ sở chính: Số 91-93 Đường số 5, Phường An Phú, Tp. Thủ Đức, Thành phố Hồ Chí Minh
+                                    p MST: 0311427563 - cấp ngày 22 tháng 12 năm 2011 tại Sở Kế Hoạch Và Đầu Tư THÀNH PHỐ HỒ CHÍ MINH
+                            li.mb-4.footer-main__list-item
+                                p.body1.mb-2 SHOWROOM HỒ CHÍ MINH:
+                                p.subtitle2 Địa chỉ: 4C Đồng Xoài, Phường 13, Quận Tân Bình
+                                p.subtitle2 Điện thoại: (028) 7301 3878 - DĐ: 0909 305 350
+                                p.subtitle2 Mở cửa: 9h đến 20h từ thứ 2 đến CN
+                            li.footer-main__list-item
+                                p.body1.mb-2 SHOWROOM HÀ NỘI:
+                                p.subtitle2 Địa chỉ: 60 Phố Dịch Vọng Hậu, Dịch Vọng Hậu, Quận Cầu Giấy
+                                p.subtitle2 Điện thoại: (028) 7301 3878 - DĐ: 0915 305 350
+                                p.subtitle2 Mở cửa: 9h đến 20h từ thứ 2 đến CN
+        .footer-aside
+            .container
+                .row
+                    .col-6.footer-aside__subcription
+                        p.h5.mb-4.footer-aside__subcription-title Đăng ký nhận tin khuyến mãi
+                        .footer-aside__subcription-content.d-flex
+                            input(type="text" placeholder="Nhập email của bạn")
+                            button.btn.btn-ct-primary Đăng ký
+                    .col-3.footer-aside__payment
+                        p.h5.mb-4.footer-aside__payment-title Phương thức thanh toán
+                        img(src="/images/payment.png", alt="Thanh toan")
+                    .col-3.footer-aside__socials
+                        p.h5.mb-4.footer-aside__socials-title Kết nối với chúng tôi
+                        i(class="fa-brands fa-facebook-f")
+                        i(class="fa-brands fa-google-plus-g")
+                        i(class="fa-brands fa-twitter")                        
+
+
+
+
+
+
+
+
+                            
+
+
+
+
+
+
+                    
+
+
+

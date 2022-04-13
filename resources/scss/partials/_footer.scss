@@ -1,0 +1,79 @@
+.footer {
+    &-main {
+        padding: 3rem 0;
+        border-top: 1px solid #eee;
+        &__title {
+            text-transform: uppercase;
+        }
+        &__list {
+            &-item {
+                a {
+                    display: block;
+                    padding: 1rem 0;
+                    color: #888;
+                    line-height: 2rem;
+                    &:hover {
+                        color: $primary-color;
+                        span {
+                            color: $primary-color;
+                        }
+                    }
+                    span {
+                        color: #555;
+                        font-weight: 600;
+                    }
+                }
+                p {
+                    line-height: 2rem;
+                }
+            }
+        }
+    }
+    &-aside {
+        border-top: 1px solid #eee;
+        padding: 3rem 0;
+        &__subcription,
+        &__payment,
+        &__socials {
+            &-title {
+                text-transform: uppercase;
+            }
+        }
+        &__subcription {
+            &-content {
+                input {
+                    outline: none;
+                    font-size: 1.4rem;
+                    background-color: #f9f9f9;
+                    width: 400px;
+                    padding: 0 0.5rem;
+                    border: 1px solid #ccc;
+                    margin-right: 20px;
+                }
+                button {
+                    padding: 0.8rem 1.5rem;
+                }
+            }
+        }
+        &__socials {
+            i {
+                width: 30px;
+                height: 30px;
+                color: white;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 30px;
+                margin-right: 10px;
+            }
+            .fa-facebook-f {
+                background-color: #4064ac;
+            }
+            .fa-google-plus-g {
+                background-color: #e34133;
+            }
+            .fa-twitter {
+                background-color: #1c9ceb;
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+header.header
+    .container.d-flex.justify-content-between.align-items-center.header__aside
+            p.header__aside-open-time Mở cửa: 9h đến 20h, chủ nhật 10h đến 19h            
+            ul.d-flex.align-items-center.header__aside-nav
+                li.header__aside-nav-item
+                    a(href="#") 
+                        i(class="fa-solid fa-user fa-xs")
+                        span.ms-2 Tài khoản
+                li.header__aside-nav-item
+                    a(href="#")
+                        i(class="fa-solid fa-star fa-xs")
+                        span.ms-2 Khuyến mãi hot
+                li.header__aside-nav-item
+                    a(href="#")
+                        i(class="fa-solid fa-location-dot fa-xs")
+                        span.ms-2 Hệ thống cửa hàng
+    .dropdown-divider.m-0
+    .container.d-flex.justify-content-between.align-items-center.header__main
+        .header__main-logo
+            img(src="/images/logo.png", alt="logo", width="196px")
+        .header__main-search
+            .header__main-search-wrapper.d-flex.align-items-center.justify-content-between
+                input(type="text", placeholder="Sản phẩm bạn muốn tìm...")
+                button.btn.btn-warning
+                    i(class="fa-solid fa-magnifying-glass")
+        .header__main-hotline.d-flex.align-items-center
+            .header__main-hotline-icon 
+                i(class="fa-solid fa-phone")
+            .header__main-hotline-info.ms-4
+                p.body1.mb-2 (028) 7301 3878
+                p.subtitle2 DĐ: 
+                    span 0909 305 350
+        a(href="#", class="header__main-cart d-flex align-items-center pe-4")
+            .header__main-cart-icon
+                i(class="fa-solid fa-cart-plus")
+            .header__main-cart-info.ms-4
+                p.body1.mb-2 (0) Sản phẩm
+                p.subtitle2 Giỏ hàng
+    

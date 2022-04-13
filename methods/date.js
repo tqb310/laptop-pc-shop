@@ -1,3 +1,3 @@
 exports.dateParseToString = (date) => {
-    return date
-}
+  return date;
+};

@@ -1,0 +1,36 @@
+extends ../../layouts/main
+
+block content
+    .register
+        nav(aria-label='breadcrumb')
+            .container
+                ol.breadcrumb
+                    li.breadcrumb-item
+                        a(href='#') Trang chủ            
+                    li.breadcrumb-item.active(aria-current='page') Đăng ký tài khoản
+        .register__form
+            .container
+                p.h4.mb-4 Đăng ký tài khoản
+                    p.mb-4 Nếu chưa có tài khoản vui lòng đăng ký tại đây                
+                    form(action="#", method="POST")
+                        .row
+                            .col-6.pe-4
+                                .mb-3
+                                    label(class="form-label", for="register-family") Họ
+                                    input(type="text", class="form-control", id="register-family", name="family",placeholder="Nhập họ")
+                                .mb-3
+                                    label(class="form-label", for="register-email") Email
+                                    input(type="email", class="form-control", id="register-email", name="email",placeholder="Nhập email")
+                            .col-6.ps-4
+                                .mb-3
+                                    label(class="form-label", for="register-name") Tên
+                                    input(type="text", class="form-control", id="register-name", name="name", placeholder="Nhập tên")                                
+                                .mb-3
+                                    label(class="form-label", for="register-password") Mật khẩu
+                                    input(type="text", class="form-control", id="register-password", name="password", placeholder="Mật khẩu")
+                        button.btn.btn-ct-primary Đăng ký
+                        a(href="/account/login", class="btn btn-link") Đăng nhập
+                     
+                           
+
+
