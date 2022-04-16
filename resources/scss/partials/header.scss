@@ -1,7 +1,7 @@
 // @use '../abstracts' as abs;
-
+@use '../abstracts/_colors.scss' as color;
 .header {
-    background-color: $primary-color;
+    background-color: color.$primary-color;
     color: #fff;
     height: 120px;
     &__aside {
@@ -16,7 +16,7 @@
                     display: inline-block;
                     color: white;
                     &:hover {
-                        color: $secondary-color;
+                        color: color.$secondary-color;
                     }
                 }
             }
@@ -53,7 +53,7 @@
                     color: #ffdada;
                     span {
                         font-weight: 600;
-                        color: $secondary-color;
+                        color: color.$secondary-color;
                     }
                 }
             }

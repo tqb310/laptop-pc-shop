@@ -1,0 +1,17 @@
+@use '../abstracts/_colors.scss' as color;
+
+.main-banner {
+    &-indicators {
+        height: 60px;
+        &__item {
+            height: 100%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &.active {
+                border-top: 4px solid color.$primary-color;
+            }
+        }
+    }
+}

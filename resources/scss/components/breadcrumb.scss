@@ -1,3 +1,5 @@
+@use '../abstracts/_colors.scss' as color;
+
 .breadcrumb {
     align-items: center;
     margin: 0;
@@ -8,11 +10,11 @@
             padding: 2rem 0;
             display: inline-block;
             &:hover {
-                color: $primary-color;
+                color: color.$primary-color;
             }
         }
         &.active {
-            color: $primary-color;
+            color: color.$primary-color;
             font-weight: 500;
         }
     }

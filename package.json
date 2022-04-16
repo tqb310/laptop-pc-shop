@@ -4,7 +4,8 @@
     "private": true,
     "scripts": {
         "start": "nodemon ./bin/www",
-        "watch": "sass --watch resources/scss:public/styles --style compressed"
+        "watch": "sass --watch resources/scss:public/styles --style compressed",
+        "scss": "gulp"
     },
     "dependencies": {
         "cookie-parser": "~1.4.4",
@@ -18,7 +19,15 @@
     },
     "devDependencies": {
         "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-cssnano": "^2.1.3",
+        "gulp-sass": "^5.1.0",
+        "gulp-sourcemaps": "^3.0.0",
         "nodemon": "^2.0.15",
         "sass": "^1.49.11"
-    }
+    },
+    "browserslist": [
+        "last 2 versions"
+    ]
 }

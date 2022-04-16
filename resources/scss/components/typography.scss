@@ -1,0 +1,23 @@
+@use '../abstracts/_mixins.scss' as mixins;
+
+.h4 {
+    @include mixins.Typography(1.8rem, 600);
+}
+.h5 {
+    @include mixins.Typography(1.6rem, 600);
+}
+.body1 {
+    @include mixins.Typography(1.5rem, 500);
+}
+
+.subtitle1 {
+    @include mixins.Typography(1.5rem, 400);
+}
+
+.subtitle2 {
+    @include mixins.Typography(1.35rem, 400);
+}
+
+.caption1 {
+    @include mixins.Typography(1.25rem, 500);
+}

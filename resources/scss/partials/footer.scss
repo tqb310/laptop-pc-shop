@@ -1,3 +1,4 @@
+@use '../abstracts/_colors.scss' as color;
 .footer {
     &-main {
         padding: 3rem 0;
@@ -13,9 +14,9 @@
                     color: #888;
                     line-height: 2rem;
                     &:hover {
-                        color: $primary-color;
+                        color: color.$primary-color;
                         span {
-                            color: $primary-color;
+                            color: color.$primary-color;
                         }
                     }
                     span {
