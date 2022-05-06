@@ -2,16 +2,38 @@
 
 .main-banner {
     &-indicators {
-        height: 60px;
+        // height: 60px;
         &__item {
-            height: 100%;
+            // height: 100%;
+            padding: 1.6rem 1rem;
             cursor: pointer;
-            display: flex;
+            display: inline-flex;
             justify-content: center;
             align-items: center;
+            border-top: 4px solid transparent;
             &.active {
                 border-top: 4px solid color.$primary-color;
             }
         }
+    }
+}
+
+.promoted-section {
+    &__title {
+        position: relative;
+        padding-bottom: 1rem;
+        &::after {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background-color: color.$primary-color;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+    }
+    .products-list {
+        display: flex;
     }
 }

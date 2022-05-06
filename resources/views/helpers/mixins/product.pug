@@ -1,0 +1,11 @@
+mixin Product()
+    div(class="product-container " + attributes.class)
+        a(href="#", class="d-block")
+            figure
+                img(src=attributes.imgLink, alt="Error while loading image...", width="205px", class="img-responsive")
+            p(style="-webkit-box-orient: vertical;", class="product-title")= attributes.title
+            .product-price
+                .product-price__discounted= attributes.discountedPrice
+                    span.currency đ
+                .product-price__original= attributes.originalPrice
+                    span.currency đ

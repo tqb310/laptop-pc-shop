@@ -1,0 +1,42 @@
+@use '../abstracts/_colors.scss' as color;
+.product-container {
+    .product-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        text-transform: capitalize;
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    .product-price {
+        margin-top: 5px;
+        display: flex;
+        line-height: 2.5rem;
+        flex-wrap: wrap;
+        &__discounted {
+            color: color.$primary-color;
+            margin-right: 10px;
+            font: {
+                weight: 500;
+                size: 1.8rem;
+            }
+        }
+        &__original {
+            color: #888;
+            text-decoration: line-through;
+            font: {
+                size: 1.4rem;
+            }
+        }
+        .currency {
+            vertical-align: top;
+            font-size: 80%;
+            text-decoration: underline;
+        }
+    }
+    &:hover {
+        .product-title {
+            color: color.$primary-color;
+        }
+    }
+}
