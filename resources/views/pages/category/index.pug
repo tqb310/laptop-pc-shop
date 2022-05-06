@@ -1,4 +1,16 @@
 extends ../../layouts/main
 
 block content
-    p.display-4= category
+    //- p.display-4= category
+    .category 
+        nav(aria-label='breadcrumb')
+                .container
+                    ol.breadcrumb
+                        li.breadcrumb-item
+                            a(href='/') Trang chủ            
+                        li.breadcrumb-item.active(aria-current='page') Sản phẩm
+        .container
+            .row 
+                .col
+                    p   test
+                .col

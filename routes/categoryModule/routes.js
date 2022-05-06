@@ -1,5 +1,5 @@
 const route = require('express').Router();
-const URL = '';
+const URL = 'category';
 
 route.get('/:category', (req, res) => {
     console.log(req.params);
