@@ -11,6 +11,24 @@ block content
                         li.breadcrumb-item.active(aria-current='page') Sản phẩm
         .container
             .row 
-                .col
-                    p   test
-                .col
+                .col-3
+                    .category-filter
+                        p(class="category-filter-title") Thương hiệu
+                        .category-filter-search(class="d-flex flex-row justify-content-between align-items-center")
+                            input(type="text",placeholder="Lọc thương hiệu" class="border-0")
+                            button(type="button" class="btn btn-success category-filter-search-button")
+                                i(class="fa-solid fa-magnifying-glass")
+                        
+                        p(class="category-filter-title") Giá sản phẩm 
+                        .category-filter-slider
+                            .category-filter-slider-track(id='sliderTrack')
+                            input(type="range",id="slider1", name="", min=5000000, max=50000000, value=10000000, oninput="sliderOne()")
+                            input(type="range",id="slider2" name="", min=5000000, max=50000000,value=40000000,oninput="sliderTwo()")
+                        .category-filter-value
+                            span(id="rangvalue1") 10000000
+                            span &dash;
+                            span(id="rangvalue2") 90000000
+                        button(type="button",class="btn btn-success category-filter-value-button") Lọc giá
+                .col-9
+    script(src="/javascripts/sliderFilter.js") 
+        
