@@ -62,7 +62,7 @@
                             -webkit-appearance: none;
                             height: 0.8em;
                             width: 0.8em;
-                            background-color: #3264fe;
+                            background-color: black;
                             cursor: pointer;
                             border-radius: 50%;
                             margin-top: -3px;
@@ -74,7 +74,7 @@
                             width: 0.8em;
                             cursor: pointer;
                             border-radius: 50%;
-                            background-color: #3264fe;
+                            background-color: black;
                             pointer-events: auto;
                         }
                         input[type='range']::-ms-thumb {
@@ -83,12 +83,12 @@
                             width: 0.8em;
                             cursor: pointer;
                             border-radius: 50%;
-                            background-color: #3264fe;
+                            background-color: black;
                             pointer-events: auto;
                         }
                         input[type='range']:active::-webkit-slider-thumb {
                             background-color: #fff;
-                            border: 2px solid #3264fe;
+                            border: 2px solid black;
                         }
                         &-track {
                             width: 100%;
@@ -112,6 +112,7 @@
                             padding: 5px;
                             background-color: #fafafa;
                             border-radius: 5px;
+                            cursor: no-drop;
                         }
                         span:first-child {
                             margin-right: 10px;
@@ -126,6 +127,39 @@
                     }
                 }
             }
+            .col-9 {
+                .category-product {
+                    width: 100%;
+                    &-title {
+                        font-weight: 700;
+                        font-size: 30px;
+                    }
+                    &-list {
+                        display: flex;
+                        flex-wrap: wrap;
+                        &-product {
+                            margin-left: 5rem;
+                            &-list {
+                                display: flex;
+                                flex-direction: row;
+                            }
+                        }
+                    }
+                }
+            }
+            .category-viewed-product {
+                margin-top: 100px;
+                &-title {
+                    font-weight: 700;
+                    font-size: 30px;
+                    text-align: center;
+                }
+                &-list {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
         }
+        padding-bottom: 50px;
     }
 }
