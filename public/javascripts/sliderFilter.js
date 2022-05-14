@@ -47,7 +47,7 @@ function fillColor() {
         ((slider2.value - minSliderValue) /
             (maxSliderValue - minSliderValue)) *
         100;
-    sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}%, #3264f2 ${percent1}%, #3264f2 ${percent2}%, #dadae5 ${percent2}%)`;
+    sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}%, black ${percent1}%, black ${percent2}%, #dadae5 ${percent2}%)`;
 }
 
 function moneyFormat(money) {

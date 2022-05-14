@@ -1,7 +1,7 @@
 extends ../../layouts/main
 
+
 block content
-    //- p.display-4= category
     .category 
         nav(aria-label='breadcrumb')
                 .container
@@ -30,5 +30,18 @@ block content
                             span(id="rangvalue2") 90000000
                         button(type="button",class="btn btn-success category-filter-value-button") Lọc giá
                 .col-9
+                    .category-product
+                        .category-product-title
+                            p   PC / Máy bộ
+                        .category-product-list
+                            each product in products
+                                +Product(class="col-sm-2 ms-5 mt-4", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice)
+            .row 
+                .category-viewed-product
+                    p(class="category-viewed-product-title")   Sản phẩm đã xem
+                    .category-viewed-product-list
+                            each product in viewed.slice(0,5)
+                                +Product(class="col-sm-2 d-inline-block", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice)
+
     script(src="/javascripts/sliderFilter.js") 
         
