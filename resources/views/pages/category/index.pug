@@ -35,7 +35,7 @@ block content
                             p   PC / Máy bộ
                         .category-product-list
                             each product in products
-                                +Product(class="col-sm-2 ms-5 mt-4", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice)
+                                +Product(class="col-sm-2 ms-5 mt-4", imgLink=product.image[0], title=product.name, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice)
             .row 
                 .category-viewed-product
                     p(class="category-viewed-product-title")   Sản phẩm đã xem

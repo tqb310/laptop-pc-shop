@@ -1,5 +1,11 @@
-exports.pageRender = (req, res) => {
+const categoryService = require('../../services/CategoryService');
+const productService = require('../../services/ProductService');
+
+exports.pageRender = async (req, res) => {
     console.log(req.params);
+    let category = await categoryService.getCategory({
+        url: req.params.url,
+    });
     let products = [
         {
             imgLink:
@@ -73,9 +79,13 @@ exports.pageRender = (req, res) => {
         },
     ];
     let viewed = products.slice(0, 5);
+    let productList =
+        await productService.getProductByCategoryId(
+            category._id,
+        );
     res.render('pages/category', {
         category: req.params.category,
-        products: products,
+        products: productList,
         viewed: viewed,
     });
 };
