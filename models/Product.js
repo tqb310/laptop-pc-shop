@@ -18,6 +18,10 @@ module.exports = mongoose.model(
             type: String,
             required: true,
         },
+        url: {
+            type: String,
+            default: '#',
+        },
         rate: {
             type: Number,
             enum: [0, 1, 2, 3, 4, 5], // 0: chua co danh gia,
@@ -53,5 +57,13 @@ module.exports = mongoose.model(
             insurance: String,
         },
         comments: [comment],
+        discountedPrice: {
+            type: Number,
+            default: 0,
+        },
+        originalPrice: {
+            type: Number,
+            default: 0,
+        },
     }),
 );

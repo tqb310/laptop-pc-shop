@@ -60,6 +60,7 @@ typings/
 .next
 
 testdb
+testdb.pug
 
 #public/styles
 public/styles

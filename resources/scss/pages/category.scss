@@ -1,0 +1,165 @@
+.category {
+    .container {
+        .row {
+            .col-3 {
+                padding-left: 30px;
+                padding-right: 30px;
+                .category-filter {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    &-title {
+                        font-weight: 600;
+                        font-size: 20px;
+                        margin-bottom: 20px;
+                    }
+                    .category-filter-search {
+                        border: 1px solid #dadae5;
+                        padding-left: 5px;
+                        margin-bottom: 30px;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        input {
+                            height: 40px;
+                        }
+                        input:focus {
+                            outline: none;
+                        }
+                        &-button {
+                            width: 40px;
+                            height: 40px;
+                            border: none;
+                        }
+                    }
+                    &-slider {
+                        position: relative;
+                        height: 50px;
+                        input[type='range'] {
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            appearance: none;
+                            width: 100%;
+                            outline: none;
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            margin: auto;
+                            background-color: transparent;
+                            pointer-events: none;
+                        }
+                        input[type='range']::-webkit-slider-runnable-track {
+                            -webkit-appearance: none;
+                            height: 5px;
+                        }
+                        input[type='range']::-moz-range-track {
+                            -moz-appearance: none;
+                            height: 5px;
+                        }
+                        input[type='range']::-ms-track {
+                            appearance: none;
+                            height: 5px;
+                        }
+                        input[type='range']::-webkit-slider-thumb {
+                            -webkit-appearance: none;
+                            height: 0.8em;
+                            width: 0.8em;
+                            background-color: black;
+                            cursor: pointer;
+                            border-radius: 50%;
+                            margin-top: -3px;
+                            pointer-events: auto;
+                        }
+                        input[type='range']::-moz-range-thumb {
+                            -webkit-appearance: none;
+                            height: 0.8em;
+                            width: 0.8em;
+                            cursor: pointer;
+                            border-radius: 50%;
+                            background-color: black;
+                            pointer-events: auto;
+                        }
+                        input[type='range']::-ms-thumb {
+                            appearance: none;
+                            height: 0.8em;
+                            width: 0.8em;
+                            cursor: pointer;
+                            border-radius: 50%;
+                            background-color: black;
+                            pointer-events: auto;
+                        }
+                        input[type='range']:active::-webkit-slider-thumb {
+                            background-color: #fff;
+                            border: 2px solid black;
+                        }
+                        &-track {
+                            width: 100%;
+                            height: 3px;
+                            position: absolute;
+                            margin: auto;
+                            top: 0;
+                            bottom: 0;
+                            border-radius: 5px;
+                        }
+                    }
+                    &-value {
+                        position: relative;
+                        span:first-child,
+                        span:last-child {
+                            display: inline-block;
+                            width: 100px;
+                            text-align: center;
+                            font-size: 14px;
+                            border: 1px solid #c3c3c3;
+                            padding: 5px;
+                            background-color: #fafafa;
+                            border-radius: 5px;
+                            cursor: no-drop;
+                        }
+                        span:first-child {
+                            margin-right: 10px;
+                        }
+                        span:last-child {
+                            margin-left: 10px;
+                        }
+                    }
+                    &-value-button {
+                        margin-top: 10px;
+                        width: 100px;
+                    }
+                }
+            }
+            .col-9 {
+                .category-product {
+                    width: 100%;
+                    &-title {
+                        font-weight: 700;
+                        font-size: 30px;
+                    }
+                    &-list {
+                        display: flex;
+                        flex-wrap: wrap;
+                        &-product {
+                            margin-left: 5rem;
+                            &-list {
+                                display: flex;
+                                flex-direction: row;
+                            }
+                        }
+                    }
+                }
+            }
+            .category-viewed-product {
+                margin-top: 100px;
+                &-title {
+                    font-weight: 700;
+                    font-size: 30px;
+                    text-align: center;
+                }
+                &-list {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+        padding-bottom: 50px;
+    }
+}

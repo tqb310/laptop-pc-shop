@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 
-
-module.exports = mongoose.model('Category', new mongoose.Schema({
-    name: {
-        type: String,
-        require
-    }
-}))
+module.exports = mongoose.model(
+    'Category',
+    new mongoose.Schema({
+        name: {
+            type: String,
+            require,
+        },
+        url: {
+            type: String,
+        },
+    }),
+);
