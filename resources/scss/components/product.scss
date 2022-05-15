@@ -1,4 +1,6 @@
 @use '../abstracts/_colors.scss' as color;
+@use '../abstracts/_animation.scss' as animation;
+
 .product-container {
     .product-title {
         display: -webkit-box;
@@ -34,9 +36,48 @@
             text-decoration: underline;
         }
     }
+    .product-discount {
+        background: url('https://bizweb.dktcdn.net/100/329/122/themes/835213/assets/label_sale_50a.png?1652497057275')
+            no-repeat;
+        width: 43px;
+        height: 35px;
+        margin-top: 10px;
+        color: white;
+        text-align: center;
+        padding-top: 6px;
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+    .product-actions {
+        @include animation.animate(fadeIn);
+        z-index: 10;
+        bottom: 0;
+        width: 100%;
+        height: fit-content;
+        display: none;
+        padding-right: 2rem;
+        background-color: white;
+        &__purchase,
+        &__preview {
+            background-color: color.$primary-color;
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            text-align: center;
+            color: white;
+        }
+        &__preview {
+            margin-left: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+    }
     &:hover {
         .product-title {
             color: color.$primary-color;
+        }
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
         }
     }
 }

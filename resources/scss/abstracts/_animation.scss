@@ -1,0 +1,19 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@mixin animate(
+    $name,
+    $duration: 0.3s,
+    $timing-func: ease,
+    $delay: 0s,
+    $iteration-count: 1
+) {
+    animation: $name $duration $timing-func $delay
+        $iteration-count;
+}

@@ -1,6 +1,6 @@
 mixin Product()
-    div(class="product-container " + attributes.class)
-        a(href="#", class="d-block")
+    div(class="product-container position-relative " + attributes.class)
+        a(href="#", class="d-block position-relative")
             figure
                 img(src=attributes.imgLink, alt="Error while loading image...", width="205px", class="img-responsive")
             p(style="-webkit-box-orient: vertical;", class="product-title")= attributes.title
@@ -9,3 +9,9 @@ mixin Product()
                     span.currency đ
                 .product-price__original= attributes.originalPrice
                     span.currency đ
+            if attributes.discount
+                .position-absolute.top-0.product-discount= '-'+attributes.discount+'%'
+        .product-actions.position-absolute
+            a(href="https://google.com" class="product-actions__purchase flex-grow-1") Mua ngay
+            .product-actions__preview Xem nhanh 
+
