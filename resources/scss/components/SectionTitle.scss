@@ -1,0 +1,9 @@
+@use '../abstracts/colors' as Color;
+
+.section-title {
+    border-bottom: 2px solid Color.$primary-color;
+    &__text {
+        background-color: Color.$primary-color;
+        color: white;
+    }
+}
