@@ -15,26 +15,6 @@
         display: flex;
         line-height: 2.5rem;
         flex-wrap: wrap;
-        &__discounted {
-            color: color.$primary-color;
-            margin-right: 10px;
-            font: {
-                weight: 500;
-                size: 1.8rem;
-            }
-        }
-        &__original {
-            color: #888;
-            text-decoration: line-through;
-            font: {
-                size: 1.4rem;
-            }
-        }
-        .currency {
-            vertical-align: top;
-            font-size: 80%;
-            text-decoration: underline;
-        }
     }
     .product-discount {
         background: url('https://bizweb.dktcdn.net/100/329/122/themes/835213/assets/label_sale_50a.png?1652497057275')
@@ -80,4 +60,26 @@
             justify-content: space-between;
         }
     }
+}
+
+.product-price__discounted {
+    color: color.$primary-color;
+    margin-right: 10px;
+    font: {
+        weight: 700;
+        size: 1.8rem;
+    }
+}
+
+.product-price__original {
+    color: #888;
+    text-decoration: line-through;
+    font: {
+        size: 1.4rem;
+    }
+}
+.currency {
+    vertical-align: top;
+    font-size: 80%;
+    text-decoration: underline;
 }

@@ -1,0 +1,73 @@
+extends ../../layouts/main
+
+block content
+    - var promotedProducts = [{imgLink: "https://bizweb.dktcdn.net/100/329/122/products/laptop-msi-prestige-14-a11sc-203vn.png?v=1642654754000",title: "Laptop MSI Prestige 14 A11SC-203VN (i7-1195G7, GTX 1650 4GB, Ram 16GB DDR4, SSD 512GB, 14 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},{imgLink: "https://bizweb.dktcdn.net/100/329/122/products/laptop-hp-probook-430-g8-614k9pa.png?v=1649239194000",title: "Laptop HP Probook 430 G8 614K9PA (i5-1135G7, Iris Xe Graphics, Ram 8GB, SSD 256GB, 13.3 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},{imgLink: "https://bizweb.sapocdn.net/thumb/medium/100/329/122/products/laptop-lenovo-yoga-slim-7-pro-14ihu5-o-82nh00aevn.png?v=1651221446000",title: "Laptop MSI Prestige 14 A11SC-203VN (i7-1195G7, GTX 1650 4GB, Ram 16GB DDR4, SSD 512GB, 14 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},{imgLink: "https://bizweb.sapocdn.net/thumb/medium/100/329/122/products/laptop-lenovo-yoga-slim-7-pro-14ihu5-o-82nh00aevn.png?v=1651221446000",title: "Laptop MSI Prestige 14 A11SC-203VN (i7-1195G7, GTX 1650 4GB, Ram 16GB DDR4, SSD 512GB, 14 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},{imgLink: "https://bizweb.dktcdn.net/100/329/122/products/laptop-msi-prestige-14-a11sc-203vn.png?v=1642654754000",title: "Laptop MSI Prestige 14 A11SC-203VN (i7-1195G7, GTX 1650 4GB, Ram 16GB DDR4, SSD 512GB, 14 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},]
+    section.product-detail__header.py-4.text-success.border.border-bottom.mb-5
+        .container Laptop Gaming Asus TUF Gaming A15 FA507RE-HN007W (Ryzen 7 6800H, RTX 3050 Ti 4GB, Ram 8GB DDR5, SSD 512GB, 15.6 Inch IPS 144Hz FHD)
+    section.product-detail__body.container
+        .row
+            .col-9.row.pe-5
+                figure.col-5
+                    img(src="https://bizweb.sapocdn.net/thumb/1024x1024/100/329/122/products/laptop-gaming-asus-tuf-gaming-a15-fa507re-hn007w.png?v=1652324057273", alt="error when loading...", class="img-responsive")
+                .col-7
+                    h1.product-detail__body-title Laptop Gaming Asus TUF Gaming A15 FA507RE-HN007W (Ryzen 7 6800H, RTX 3050 Ti 4GB, Ram 8GB DDR5, SSD 512GB, 15.6 Inch IPS 144Hz FHD)
+                    .rate.mt-3.d-flex
+                        .rate-stars
+                            i.fa-solid.fa-star.fa-lg.rated.text-warning
+                            i.fa-solid.fa-star.fa-lg.rated.text-warning
+                            i.fa-solid.fa-star.fa-lg.rated.text-warning
+                            i.fa-solid.fa-star.fa-lg.rated.text-warning
+                            i.fa-solid.fa-star.fa-lg.rated.text-warning
+                        .rate-review.ms-3
+                            a(href="#" class="link-primary") Xem 7 đánh giá
+                    .group-status.mt-4
+                        span Thương hiệu:
+                            span.text-success.ms-1 Asus
+                        span.ms-3 |
+                        span.ms-3 Tình trạng:
+                            span.text-success.ms-1 Còn hàng                   
+                    .product-price.d-flex.mt-4
+                        .product-price__discounted.lg 31.500.000
+                            span.currency đ
+                        .product-price__original.lg.ms-2 35.000.000
+                            span.currency đ
+                    ul.mt-4.product-trait
+                        li CPU:  Ryzen 7 5800HS (2.8GHz~4.4GHz) 8 Cores 16 Threads
+                        li VGA: GeForce RTX 3050 4GB
+                        li Ram: 8GB DDR4 3200MHz
+                        li Ổ cứng: 512GB SSD M.2 PCIe Gen 3.0
+                        li Màn hình: 14" IPS 120Hz WQHD 100% DCI-P3
+                        li Bảo hành 2 năm.                    
+                    .product-quantity.mt-4
+                        p Số lượng:
+                        .d-inline-flex.btn-group.mt-3
+                            button.btn.btn-outline-dark.fw-bolder.fs-1 -
+                            input(type="text", name="quantity", id="product_quantity", value="1")
+                            button.btn.btn-outline-dark.fw-bolder.fs-1 +
+                    .product-order.row.mt-5
+                        div.col-6
+                            button.btn.btn-success.w-100.py-3
+                                p.text-uppercase.fw-bold Mua ngay
+                                p.fs-5 Giao hàng miễn phí tận nơi
+                        div.col-6
+                            button.btn.btn-info.w-100.py-3
+                                a(href="tel:02812345678" class="d-block text-white")
+                                    p.text-uppercase.fw-bold Gọi đặt hàng
+                                    p.fs-5 Vui lòng đặt hàng tại (028) 1234 5678
+                .product-description.position-relative
+                    .btn-group 
+                        button.btn.btn-success.fs-4.fw-bold.text-uppercase.py-3.px-5 Mô tả sản phẩm
+                        button.btn.btn-light.fs-4.fw-bold.text-uppercase.py-3.px-5 Thông số kỹ thuật
+                    .p-5.border
+                        .product-description__content.position-relative
+                            p.lh-base Laptop Gaming Asus ROG Strix G17 G713RW-LL157W cho trải nghiệm hoàn toàn mới để chơi chơi game với khung máy siêu mỏng và bộ vi xử lý AMD Ryzen 6000 Series và GPU GeForce RTX 30 Series cho trải nghiệm mượt mà. Màn hình WQHD 17.3 inch tần số quét lên đến 240Hz cùng bộ nhớ DDR5 mang đến cho bạn trải nghiệm chơi game không gián đoạn ở bất cứ nơi đâu.
+                            img(src="https://bizweb.sapocdn.net/100/329/122/files/headline-dd5f27c2-b781-4971-84b6-8866cbd51892.jpg?v=1652148701634", alt="error when loading...", class="img-responsive")
+                    button.btn.btn-outline-success.px-4.position-absolute.bottom-0.start-50.translate-middle-x Xem đầy đủ
+                    
+            .col-3
+                .product-recommend.rounded.overflow-hidden.border
+                    h3.bg-success.text-white.py-3.px-4.text-uppercase Có thể bạn thích
+                    ul
+                        li
+                            each product in promotedProducts
+                                +Product(class="border-bottom p-4", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice,discount=product.discount, layout="d-flex")                                

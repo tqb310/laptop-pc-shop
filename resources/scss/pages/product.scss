@@ -1,0 +1,45 @@
+@use '../abstracts/_colors.scss' as color;
+
+.product-detail__body {
+    .product-price__discounted.lg {
+        font-size: 3rem;
+        font-weight: 700;
+    }
+    .product-price__original.lg {
+        font-size: 1.8rem;
+        line-height: 4rem;
+    }
+    .product-trait {
+        padding-left: 1rem;
+        li {
+            line-height: 3rem;
+            padding-left: 0.5rem;
+            font-weight: 500;
+            color: #555;
+            &::marker {
+                content: '\2714';
+                color: color.$primary-color;
+            }
+        }
+    }
+    .product-quantity {
+        button {
+            min-width: 30px;
+            padding: 0.2rem 1.5rem;
+        }
+        input {
+            padding: 0.2rem 1.5rem;
+            width: 60px;
+            outline: none;
+            border: none;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            text-align: center;
+        }
+    }
+    .product-description {
+        margin-top: 80px;
+        height: 300px;
+        overflow: hidden;
+    }
+}
