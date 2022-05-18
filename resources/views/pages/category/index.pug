@@ -43,5 +43,10 @@ block content
                             each product in viewed.slice(0,5)
                                 +Product(class="col-sm-2 d-inline-block", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice)
 
-    script(src="/javascripts/sliderFilter.js") 
+        script.
+            window.onload = function () {
+                sliderOne();
+                sliderTwo();
+            };
+    
         
