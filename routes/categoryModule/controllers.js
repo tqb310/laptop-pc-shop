@@ -1,7 +1,7 @@
 const categoryService = require('../../services/CategoryService');
 const productService = require('../../services/ProductService');
 
-exports.pageRender = async (req, res) => {
+exports.pageRender = async (req, res, next) => {
     console.log(req.params);
     let category = await categoryService.getCategory({
         url: req.params.url,
@@ -79,13 +79,18 @@ exports.pageRender = async (req, res) => {
         },
     ];
     let viewed = products.slice(0, 5);
-    let productList =
-        await productService.getProductByCategoryId(
-            category._id,
-        );
-    res.render('pages/category', {
-        category: req.params.category,
-        products: productList,
-        viewed: viewed,
-    });
+    console.log(category);
+    if (!category) {
+        next();
+    } else {
+        let productList =
+            await productService.getProductByCategoryId(
+                category._id,
+            );
+        res.render('pages/category', {
+            category: req.params.category,
+            products: productList,
+            viewed: viewed,
+        });
+    }
 };
