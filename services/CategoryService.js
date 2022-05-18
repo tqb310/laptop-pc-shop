@@ -6,7 +6,7 @@ const Category = require('../models/Category');
  * @returns An array of Category
  */
 exports.getAllCategory = async (option = {}) => {
-  return await Category.find(option);
+    return await Category.find(option);
 };
 
 /**
@@ -15,7 +15,7 @@ exports.getAllCategory = async (option = {}) => {
  * @returns A Category
  */
 exports.getCategory = async (option = {}) => {
-  return await Category.findOne(option);
+    return await Category.findOne(option);
 };
 
 /**
@@ -24,9 +24,9 @@ exports.getCategory = async (option = {}) => {
  * @returns New Category
  */
 exports.createCategory = async (option = {}) => {
-  const newCategory = new Category(option);
-  await newCategory.save();
-  return newCategory;
+    const newCategory = new Category(option);
+    await newCategory.save();
+    return newCategory;
 };
 
 /**
@@ -36,19 +36,19 @@ exports.createCategory = async (option = {}) => {
  * @returns Updated Category
  */
 exports.updateCategory = async (id, option = {}) => {
-  const newCategory = await Category.findOneAndUpdate(
-    { _id: id },
-    option,
-  );
-  return newCategory;
+    const newCategory = await Category.findOneAndUpdate(
+        { _id: id },
+        option,
+    );
+    return newCategory;
 };
 
 /**
  *
  * @param {*} id Category id for delete
  */
-exports.deleteCategoryById = async (id) => {
-  await Category.findOneAndDelete({ _id: id });
+exports.deleteCategoryById = async id => {
+    await Category.findOneAndDelete({ _id: id });
 };
 
 /**
@@ -56,5 +56,5 @@ exports.deleteCategoryById = async (id) => {
  * @param {*} option filter. Ex: {name: "1234"}
  */
 exports.deleteCategory = async (option = {}) => {
-  await Category.deleteMany(option);
+    await Category.deleteMany(option);
 };
