@@ -1,8 +1,3 @@
-window.onload = function () {
-    sliderOne();
-    sliderTwo();
-};
-
 let slider1 = document.getElementById('slider1');
 let slider2 = document.getElementById('slider2');
 let value1 = document.getElementById('rangvalue1');
@@ -51,7 +46,7 @@ function fillColor() {
 }
 
 function moneyFormat(money) {
-    let result = 'đ';
+    let result = '';
     while (money > 0) {
         let remainder = money % 1000;
         money = (money - remainder) / 1000;
@@ -67,4 +62,8 @@ function moneyFormat(money) {
             result;
     }
     return result;
+}
+
+function moneyToInt(text) {
+    return parseInt(text.split('.').join(''));
 }
