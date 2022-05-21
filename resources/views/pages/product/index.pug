@@ -54,16 +54,62 @@ block content
                                 a(href="tel:02812345678" class="d-block text-white")
                                     p.text-uppercase.fw-bold Gọi đặt hàng
                                     p.fs-5 Vui lòng đặt hàng tại (028) 1234 5678
-                .product-description.position-relative
+                .product-description
                     .btn-group 
                         button.btn.btn-success.fs-4.fw-bold.text-uppercase.py-3.px-5 Mô tả sản phẩm
                         button.btn.btn-light.fs-4.fw-bold.text-uppercase.py-3.px-5 Thông số kỹ thuật
-                    .p-5.border
-                        .product-description__content.position-relative
+                    .border.position-relative.product-description__tab
+                        .product-description__content
                             p.lh-base Laptop Gaming Asus ROG Strix G17 G713RW-LL157W cho trải nghiệm hoàn toàn mới để chơi chơi game với khung máy siêu mỏng và bộ vi xử lý AMD Ryzen 6000 Series và GPU GeForce RTX 30 Series cho trải nghiệm mượt mà. Màn hình WQHD 17.3 inch tần số quét lên đến 240Hz cùng bộ nhớ DDR5 mang đến cho bạn trải nghiệm chơi game không gián đoạn ở bất cứ nơi đâu.
-                            img(src="https://bizweb.sapocdn.net/100/329/122/files/headline-dd5f27c2-b781-4971-84b6-8866cbd51892.jpg?v=1652148701634", alt="error when loading...", class="img-responsive")
-                    button.btn.btn-outline-success.px-4.position-absolute.bottom-0.start-50.translate-middle-x Xem đầy đủ
-                    
+                            img(src="https://bizweb.sapocdn.net/100/329/122/files/headline-dd5f27c2-b781-4971-84b6-8866cbd51892.jpg?v=1652148701634", alt="error when loading...", class="img-responsive", width="100%")
+                        .show-more.position-relative
+                            .overlay                        
+                            button.btn.btn-outline-success.px-4.position-absolute.start-50.translate-middle-x Xem đầy đủ
+                .product-comment.mt-5
+                    h2.product-comment__title.text-uppercase.my-5 Khách hàng nhận xét
+                    .row.pb-4
+                        .col-6.text-center
+                            h4.mb-3.fw-normal Đánh giá trung bình
+                            h1.text-danger.fw-bolder.mb-4
+                                span 4.7
+                                span &nbsp;/&nbsp;
+                                span 5
+                            p.text-secondary (3 đánh giá)
+                        .col-6
+                            +Rate(number="5", rate="67%", width="w-75")                        
+                            +Rate(number="4", rate="33%", width="w-25")                        
+                            +Rate(number="3", rate="0%", width="w-0")                        
+                            +Rate(number="2", rate="0%", width="w-0")                        
+                            +Rate(number="1", rate="0%", width="w-0")
+                    .dropdown-divider.border-light
+                    .product-comment__form.mt-5
+                        h2.mb-4
+                            span.fw-normal Đánh giá, bình luận về 
+                            span "Máy tính Asrock Mini PC DeskMini X300 X300/B/BB/BOX/US"
+                        .mb-5
+                            p.mb-3 B1: Chọn đánh giá của bạn
+                            .rate-stars
+                                i.fa-solid.fa-star.fa-lg.rated.text-warning.me-2
+                                i.fa-solid.fa-star.fa-lg.rated.text-warning.me-2
+                                i.fa-solid.fa-star.fa-lg.rated.text-warning.me-2
+                                i.fa-solid.fa-star.fa-lg.rated.text-warning.me-2
+                                i.fa-solid.fa-star.fa-lg.rated.text-warning
+                        .mb-5
+                            p.mb-3 B2: Nhập đánh giá về sản phẩm                 
+                            textarea(class="w-100 border p-4 me-5" rows="4"  placeholder="...")
+                        button.btn.btn-success.align-self-start.p-3.fs-4.fw-bold Gửi nhận xét                    
+                    .product-comment__list.my-5
+                        .border-top
+                            +Comment(name="Nguyễn An", content="cho mình hỏi nếu thay ryzen 5 thành ryzen 7 thì giá bao nhiêu ạ", createAt="18/05/2022 14:48")                     
+                            +CommentRep()                     
+                        .border-top
+                            +Comment(name="Nguyễn An", content="cho mình hỏi nếu thay ryzen 5 thành ryzen 7 thì giá bao nhiêu ạ", createAt="18/05/2022 14:48")
+                        .border-top
+                            +Comment(name="Nguyễn An", content="cho mình hỏi nếu thay ryzen 5 thành ryzen 7 thì giá bao nhiêu ạ", createAt="18/05/2022 14:48")
+                        .border-top
+                            +Comment(name="Nguyễn An", content="cho mình hỏi nếu thay ryzen 5 thành ryzen 7 thì giá bao nhiêu ạ", createAt="18/05/2022 14:48")
+                        .border-top
+                            +Comment(name="Nguyễn An", content="cho mình hỏi nếu thay ryzen 5 thành ryzen 7 thì giá bao nhiêu ạ", createAt="18/05/2022 14:48")
             .col-3
                 .product-recommend.rounded.overflow-hidden.border
                     h3.bg-success.text-white.py-3.px-4.text-uppercase Có thể bạn thích

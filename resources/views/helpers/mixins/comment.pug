@@ -1,0 +1,28 @@
+mixin Comment()
+    .py-3.comment
+        .d-flex.align-items-center.mb-3
+            .avatar.me-4.overflow-hidden
+                if attributes.isAdmin
+                    img(src="/images/logo.png", alt="avatar", class="bg-success")
+                else
+                    span.d-inline-block.w-100.h-100.bg-secondary NA
+            p.fw-bold= attributes.name
+            if attributes.isAdmin
+                .bg-warning.text-white.p-2.rounded-start.ms-4.fs-4 Quản trị viên 
+        .d-flex.mb-3
+            if !attributes.isAdmin
+                .rate-stars.me-3
+                    i.fa-solid.fa-star.fa-sm.rated.text-warning.me-2
+                    i.fa-solid.fa-star.fa-sm.rated.text-warning.me-2
+                    i.fa-solid.fa-star.fa-sm.rated.text-warning.me-2
+                    i.fa-solid.fa-star.fa-sm.rated.text-warning.me-2
+                    i.fa-solid.fa-star.fa-sm.rated.text-warning
+            p= attributes.content
+        .d-flex.mb-3.align-items-center
+            button.btn.btn-outline-primary.btn-sm Trả lời
+            .dot
+            p.fs-5.fst-italic.text-secondary= attributes.createAt
+
+mixin CommentRep()
+    .p-3.bg-light.border.comment-rep.mb-4
+        +Comment(name="An Khang", content="Dạ mình liên hệ tổng đài để các bạn tư vấn mình kỹ hơn ạ (028) 7301 3878 - 0909 305 350", createAt="18/05/2022 15:01", isAdmin=true)

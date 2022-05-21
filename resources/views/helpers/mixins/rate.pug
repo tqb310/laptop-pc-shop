@@ -1,0 +1,7 @@
+mixin Rate()
+    .d-flex.align-items-center.w-75.mb-3
+        span= attributes.number
+        i.fa-solid.fa-star.fa-xs.text-secondary.mx-3
+        div( class="progress w-75 me-3 rounded-pill", style="height:15px")
+            div(class="progress-bar " + attributes.width, role="progressbar", aria-valuenow="25", aria-valuemin="0", aria-valuemax="100")
+        span= attributes.rate
