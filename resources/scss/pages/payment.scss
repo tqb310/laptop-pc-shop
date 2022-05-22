@@ -1,0 +1,193 @@
+.money::after {
+    content: 'đ';
+}
+.payment {
+    background: linear-gradient(
+        90deg,
+        #f4f4f4 80%,
+        #ffff 20%
+    );
+    &-infor {
+        form {
+            height: 500px;
+            position: relative;
+            .input-container {
+                height: 50px;
+                width: 100%;
+                position: relative;
+                background: #fff;
+
+                .form-input,
+                .form-label {
+                    position: absolute;
+                }
+                .form-input {
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border: 2px solid #c3c3c3;
+                    border-radius: 5px;
+                    outline: none;
+                    padding-left: 14px;
+                    background: #fff;
+
+                    &:focus {
+                        border-color: #008744;
+                    }
+
+                    &:focus ~ .form-label,
+                    &:not(:placeholder-shown).form-input:not(:focus)
+                        ~ .form-label {
+                        top: -0.6rem;
+                        font-size: 1.2rem;
+                        background-color: linear-gradient(
+                            180deg,
+                            #f4f4f4 50%,
+                            #ffff 50%
+                        );
+                    }
+                }
+                .form-label {
+                    top: 18px;
+                    left: 10px;
+                    cursor: text;
+                    background-color: #ffffff;
+                    transition: top 200ms ease-in,
+                        left 200ms ease-in,
+                        font-size 200ms ease-in;
+                }
+                .form-select {
+                    width: 100%;
+                    height: 100%;
+                    border: 2px solid #c3c3c3;
+                    font-size: 16px !important;
+                    border-radius: 5px;
+                    outline: none;
+                    padding-left: 14px;
+                    outline: none;
+
+                    &:focus {
+                        border-color: #008744;
+                        outline: none;
+                        box-shadow: none;
+                    }
+
+                    &:focus ~ .form-label,
+                    &:not(:placeholder-shown).form-select:not(:focus)
+                        ~ .form-label {
+                        top: -0.6rem;
+                        font-size: 1.2rem;
+                        background-color: linear-gradient(
+                            180deg,
+                            #f4f4f4 50%,
+                            #ffff 50%
+                        );
+                    }
+                }
+            }
+        }
+        &-delivery {
+            &-method {
+                .input-container {
+                    border: 2px solid #c3c3c3;
+                    height: 50px;
+                    width: 100%;
+                    position: relative;
+                    padding: 10px 10px;
+                    background: #fff;
+                    border-radius: 5px;
+
+                    .form-input {
+                        &:focus {
+                        }
+                    }
+                    .form-label {
+                        width: 90%;
+                    }
+                }
+            }
+            .payment-method-content {
+                background: #ffffff;
+                border: 2px solid #c3c3c3;
+                border-radius: 5px;
+                .method-row {
+                    .input-container {
+                        padding: 15px 20px;
+                        label {
+                            display: flex;
+                            justify-content: center;
+                            span {
+                                width: 75%;
+                                line-height: 2rem;
+                            }
+                            .image-wrapper {
+                                width: 50px;
+                                height: 30px;
+                                overflow: hidden;
+                                img.label-icon {
+                                    object-fit: cover;
+                                }
+                            }
+                        }
+                    }
+                    .row-content {
+                        border: 1px solid #f1f1f1;
+                        padding: 0;
+                        background-color: #f8f8f8;
+                        font-size: 14px;
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: max-height 0.3s ease;
+                        &.active {
+                            padding: 15px 20px;
+                            max-height: 200px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-order {
+        background-color: #ffffff;
+        &-title {
+        }
+        &-content {
+            .payment-product-order {
+                max-height: 300px;
+                overflow-y: auto;
+                table {
+                    td {
+                        vertical-align: middle;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+
+                        .img-wrapper {
+                            width: 50px;
+                            height: 60px;
+                            border: 1px solid #f1f1f1;
+                            img {
+                                border: none;
+                            }
+                        }
+                        .product-title {
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+            .payment-order-price {
+                .payment-finish-price {
+                    span:last-child {
+                        color: #008744;
+                    }
+                }
+                .payment-order-action {
+                    a {
+                        color: #008744;
+                    }
+                }
+            }
+        }
+    }
+}
