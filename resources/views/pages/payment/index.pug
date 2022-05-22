@@ -1,0 +1,122 @@
+extends ../../layouts/main
+block content
+    .payment(class='d-flex')
+        .container(class='d-flex')
+            .payment-infor(class='col-8 d-flex justify-content-around me-0')
+                .payment-infor-client(class='col-6 me-5')
+                    h2(class='mt-3') Thông tin nhận hàng
+                    form(action="") 
+                        .input-container(class='my-3')
+                            input(class='form-input',type="text", id='email', placeholder=' ')
+                            label(class='form-label',for="email")   Email 
+                        .input-container(class='my-3')
+                            input(class='form-input',type="text",id='name', placeholder=' ')
+                            label(class='form-label',for="name")   Họ và tên
+                        .input-container(class='my-3')
+                            input(class='form-input',type="text",id='phone', placeholder=' ')
+                            label(class='form-label',for="phone")   Số điện thoại
+                        .input-container(class='my-3')
+                            input(class='form-input',type="text",id='address', placeholder=' ')
+                            label(class='form-label',for="address")   Địa chỉ
+                        .input-container(class='my-3')
+                            select(class='form-select', id='province', onchange="changeProvince()")
+                                <option value="" selected>Chọn tỉnh thành</option>
+                            label(class='form-label',for="province") Tỉnh / Thành
+                        .input-container(class='my-3')
+                            select(class='form-select', id='district', onchange="changeDistrict()")
+                                <option value="" selected>Chọn quận huyện</option>
+                            label(class='form-label',for="district") Quận / Huyện
+                        .input-container(class='my-3')
+                            select(class='form-select', id='ward')
+                                 <option value="" selected>Chọn phường xã</option>
+                            label(class='form-label',for="ward") Phường / Xã
+                        
+                .payment-infor-delivery(class='col-5 d-flex flex-column')
+                    .payment-infor-delivery-method
+                        h2(class='mt-3') Vận chuyển
+                        .input-container(class='my-3 d-flex align-items-center')
+                            input(class='form-input',type="radio",id='delivery-method', placeholder=' ', checked)
+                            label(class='d-flex justify-content-around ms-2 form-label mb-0',for="delivery-method")   
+                                span GIAO NHANH 2-4 NGÀY 
+                                span Miễn phí
+                    .payment-infor-delivery-payment-method
+                        h3(class='mt-3') Thanh toán
+                        .payment-method-content 
+                            .method-row
+                                .input-container(class='my-3 d-flex align-items-center')
+                                    input(class='form-input',type="radio",id='bank', placeholder=' ', checked, name='payment-method',onchange="toggleContent('bank-content')")
+                                    label(class='w-100 d-flex justify-content-between ms-2 form-label mb-0',for='bank')   
+                                        span(class='fs-4') Chuyển khoản qua ngân hàng (VietQR) (Miễn phí thanh toán)
+                                        .image-wrapper
+                                            img(src='https://bizweb.dktcdn.net/100/329/122/files/01icon-vietqr.png?v=1639481626593')
+                                .row-content.active(id='bank-content') 
+                                    p TP. Hồ Chí Minh: Ưu tiên giao hàng không tiếp xúc.
+                                    p Hỗ trợ COD với đơn hàng giá trị < 2.000.000đ.
+                                    p Đơn hàng >= 2.000.000đ hoặc có các sản phẩm Laptop, PC, Màn hình, Ghế quý khách vui lòng chọn chuyển khoản.
+                                    p Lưu ý: MemoryZone miễn phí đồng kiểm cho khách hàng.
+                                    
+                            .method-row
+                                .input-container(class='my-3 d-flex align-items-center')
+                                    input(class='form-input',type="radio",id='cod', placeholder=' ', name='payment-method',onchange="toggleContent('cod-content')")
+                                    label(class='w-100 d-flex justify-content-between ms-2 form-label mb-0',for="cod")   
+                                        span(class='fs-4') Thanh toán khi giao hàng (COD)
+                                        .image-wrapper
+                                            img(class='label-icon',src='https://bizweb.dktcdn.net/100/329/122/files/02icon-cod.png?v=1639559673947')
+                                .row-content(id='cod-content')
+                                    p Thanh toán online qua thẻ Visa, Master, JCB (Miễn phí thanh toán)   
+                            .method-row
+                                .input-container(class='my-3 d-flex align-items-center')
+                                    input(class='form-input',type="radio",id='installment', placeholder=' ', name='payment-method',onchange="toggleContent('installment-content')")
+                                    label(class='w-100 d-flex justify-content-between ms-2 form-label mb-0',for='installment')   
+                                        span(class='fs-4') Trả góp 0% lãi suất qua thẻ Visa, Master, JCB (Đơn hàng từ 3.000.000đ)
+                                        .image-wrapper
+                                            img(src='https://bizweb.dktcdn.net/100/329/122/files/03icon-tragop-0.png?v=1639481630773')
+                                .row-content(id='installment-content')
+                                    p Trả góp 0% qua thẻ tín dụng (Credit Card) Visa, Master, JCB liên kết với 29 ngân hàng. Phí chuyển đổi thấp nhất thị trường. Hỗ trợ các kì hạn 3, 6, 9, 12 tháng.
+                            .method-row
+                                .input-container(class='my-3 d-flex align-items-center')
+                                    input(class='form-input',type="radio",id='debitcard', placeholder=' ', name='payment-method', onchange="toggleContent('debitcard-content')")
+                                    label(class='w-100 d-flex justify-content-between ms-2 form-label mb-0',for='debitcard')   
+                                        span(class='fs-4') Thanh toán online qua thẻ Visa, Master, JCB (Miễn phí thanh toán)
+                                        .image-wrapper
+                                            img(src='https://bizweb.dktcdn.net/100/329/122/files/04icon-visamaster.png?v=1639481634747')
+                                .row-content(id='debitcard-content')
+                                    p Thanh toán online qua thẻ Visa, Master, JCB (Miễn phí thanh toán)   
+                            
+            .payment-order(class='col-4')
+                .payment-order-title.px-4.mt-3
+                    h2(class='mt-3') Đơn hàng (#{products.length} sản phẩm)
+                .payment-order-content.border-top.ps-5.mt-3
+                    .payment-product-order.border-bottom
+                        table
+                            each product in products 
+                                tr
+                                    td
+                                        .img-wrapper.overflow-hidden
+                                            img(src=product.imgLink, class="img-thumbnail")
+                                    td.ps-3.pe-5.fs-4
+                                        .product-title=product.title
+                                    td
+                                        span.money=product.discountedPrice
+                    .payment-order-price 
+                        - var finishPrice = 0; 
+                                - for(var i = 0; i < products.length; i++)
+                                    - finishPrice += products[i].discountedPrice
+                        .border-bottom.fs-4.py-4
+                            .provisional.d-flex.justify-content-between.mb-4
+                                span Tạm tính
+                                span(class='money')=finishPrice
+                            .payment-delivery-price.d-flex.justify-content-between
+                                span Phí vận chuyển 
+                                span Miễn phí
+                        .payment-finish-price.d-flex.justify-content-between.mt-3.fs-3 
+                            span   Tổng cộng 
+                            span(class='money')=finishPrice
+                        .payment-order-action.d-flex.justify-content-between.mt-4
+                            a.fs-4(href='/cart')   Quay về giỏ hàng 
+                            button.btn.btn-success Đặt hàng
+    script.
+        window.onload = function(){
+            renderProvince()
+            renderMoney()
+        }

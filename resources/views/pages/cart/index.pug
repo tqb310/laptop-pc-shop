@@ -41,7 +41,9 @@ block content
                     td(colspan="6" class="totalprice pe-5")  Tổng tiền: 
                         span(id=`totalprice` class='money text-success')    121.980.000
             div(class='my-5 d-flex justify-content-end')
-                button(class="btn btn-primary me-2") Tiếp tục mua hàng 
-                button(class='btn btn-success') Thực hiện thanh toán
+                button(class="btn btn-primary me-2")
+                    a(href='/' class='text-light')  Tiếp tục mua hàng 
+                button(class='btn btn-success ') 
+                    a(href='/payment' class='text-light') Thực hiện thanh toán
     script.
          window.onload = function(){cartOnLoad()}
