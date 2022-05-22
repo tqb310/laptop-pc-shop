@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "concurrently \"nodemon ./bin/www\" \"npm run scss\" \"npm run dev --prefix admin\"",
+        "start": "concurrently \"nodemon ./bin/www\" \"npm run scss\" \"npm run dev --prefix admin2\"",
         "watch": "sass --watch resources/scss:public/styles --style compressed",
         "scss": "gulp"
     },

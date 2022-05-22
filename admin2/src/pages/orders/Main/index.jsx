@@ -71,7 +71,7 @@ function MainOrder() {
                                 </td>
                                 <td className='py-3'>
                                     <Button color='primary' outline onClick={navigateToDetail(user.id)}>
-                                        <i class="bi bi-pencil-fill"></i>
+                                        <i className="bi bi-pencil-fill"></i>
                                     </Button>
                                 </td>
                             </tr>

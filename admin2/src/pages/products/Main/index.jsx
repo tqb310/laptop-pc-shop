@@ -43,7 +43,7 @@ function Products() {
             <ContentLayout title={"Sản phẩm"} btnLabel="Thêm sản phẩm" handleClick={handleClick}>
                 <Row sm={4} className='g-3'>
                     {products && products.map((product, index) => (
-                        <Col>
+                        <Col key={index}>
                             {<ProductItem title={product.title} imgLink={product.imgLink} price={product.price} />}
                         </Col>
                     ))}
