@@ -64,3 +64,6 @@ testdb.pug
 
 #public/styles
 public/styles
+
+#public/dist
+public/dist/assets

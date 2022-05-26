@@ -14,6 +14,10 @@ const path = {
         src: ['resources/scripts/**/*.js'],
         dest: ['public/scripts'],
     },
+    adminDir: {
+        src: 'admin2/dist/assets/**/*',
+        dest: 'public/dist/assets',
+    },
 };
 
 task('scss', () => {
@@ -36,4 +40,9 @@ task('watch', () => {
     return watch(path.scss.src, series('scss'));
 });
 
+task('moveAdminDirToPublic', () => {
+    return src(path.adminDir.src).pipe(
+        dest(path.adminDir.dest),
+    );
+});
 task('default', series('scss', 'watch'));
