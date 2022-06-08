@@ -3,10 +3,10 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "concurrently \"nodemon ./bin/www\" \"npm run scss\" \"npm run dev --prefix admin2\"",
-        "watch": "sass --watch resources/scss:public/styles --style compressed",
-        "scss": "gulp",
-        "build": "npm run build --prefix admin2 && gulp moveAdminDirToPublic"
+        "dev": "concurrently \"nodemon ./bin/www\" \"gulp scss\" \"npm run dev --prefix admin2\"",
+        "build": "npm run build --prefix admin2 && gulp moveAdminAssetsToPublic && gulp compile-scss",
+        "start": "nodemon ./bin/www",
+        "watch": "sass --watch resources/scss:public/styles --style compressed"
     },
     "dependencies": {
         "cookie-parser": "~1.4.4",

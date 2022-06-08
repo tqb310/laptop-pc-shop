@@ -16,11 +16,11 @@ const path = {
     },
     adminDir: {
         src: 'admin2/dist/assets/**/*',
-        dest: 'public/dist/assets',
+        dest: 'public/assets',
     },
 };
 
-task('scss', () => {
+task('compile-scss', () => {
     return src(path.scss.src)
         .pipe(sourcemap.init())
         .pipe(sass().on('error', sass.logError))
@@ -36,13 +36,14 @@ task('scss', () => {
         .pipe(dest(path.scss.dest));
 });
 
-task('watch', () => {
-    return watch(path.scss.src, series('scss'));
+task('watch-scss', () => {
+    return watch(path.scss.src, series('compile-scss'));
 });
 
-task('moveAdminDirToPublic', () => {
+task('scss', series('compile-scss', 'watch-scss'));
+
+task('moveAdminAssetsToPublic', () => {
     return src(path.adminDir.src).pipe(
         dest(path.adminDir.dest),
     );
 });
-task('default', series('scss', 'watch'));
