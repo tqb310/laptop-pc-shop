@@ -8,7 +8,7 @@ var app = require('../app');
 var debug = require('debug')('ecommercewebsite:server');
 var http = require('http');
 var dotenv = require('dotenv').config();
-var database = require('../models/connect');
+var database = require('../config/connectDB');
 
 /**
  * Get port from environment and store in Express.

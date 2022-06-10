@@ -1,0 +1,28 @@
+### POST LOGIN
+POST http://localhost:9999/account/login
+Content-Type: application/json
+
+{
+    "email": "quocbao@gmail.com",
+    "password": "quocbao12"
+}
+
+### POST REGISTER
+POST http://localhost:9999/account/register
+Content-Type: application/json
+
+{
+    "firstName": "Bảo",
+    "lastName": "Trương Quốc",
+    "email": "quocbao@gmail.com",
+    "password": "quocbao123",
+    "verifiedPassword": "quocbao123",
+    "role": "user"
+}
+
+### GET LOGIN
+GET http://localhost:9999/account/login
+
+
+### GET HOMEPAGE
+GET http://localhost:9999

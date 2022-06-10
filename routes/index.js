@@ -4,8 +4,8 @@ const {
     route: authRoute,
     URL,
 } = require('./authModule/routes');
-const sessionMiddleware =
-    require('./authModule/middlewares').sessionMiddleware;
+// const sessionMiddleware =
+//     require('./authModule/middlewares').sessionMiddleware;
 const fs = require('fs');
 
 const walkSync = function (dir, filelist) {
@@ -19,7 +19,7 @@ const walkSync = function (dir, filelist) {
     return filelist;
 };
 
-router.use(sessionMiddleware);
+// router.use(sessionMiddleware);
 
 router.use('/' + URL, authRoute);
 walkSync('./routes')

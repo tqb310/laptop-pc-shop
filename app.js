@@ -1,40 +1,71 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
-
 var indexRouter = require('./routes/index');
+var mongoSessionStore = require('connect-mongodb-session')(
+    session,
+);
+var flash = require('connect-flash');
+var passport = require('passport');
+require('dotenv').config();
 
 var app = express();
 
-// view engine setup
-// app.set(
-//   'views',
-//   require('./views/index')
-//     .getAllView('./views')
-//     .map((p) => path.join(__dirname, p)),
-// );
+// Setup view engine
 app.set(
     'views',
     path.join(__dirname, 'resources', 'views'),
 );
 app.set('view engine', 'pug');
+
+//Using Logger
 app.use(logger('dev'));
+
+//Set payload parser (json & urlencoded)
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(
-    session({
-        secret: 'thisismysecrctekeyfhrgfgrfrty84fwir767',
-        saveUninitialized: true,
-        cookie: { maxAge: 1000 * 60 * 60 * 24 },
-        resave: false,
-    }),
-);
+
+//Set public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Set session for every request
+app.use(
+    session({
+        secret: process.env.SECRET_KEY,
+        saveUninitialized: false,
+        cookie: { maxAge: 1000 * 60 * 10 },
+        resave: false,
+        store: new mongoSessionStore({
+            uri: process.env.DATABASE_URI,
+            collection: 'sessions',
+        }),
+    }),
+);
+
+//Set flash message
+app.use(flash());
+
+//Initilize passport
+require('./config/passport');
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Global variables accross routes
+app.use((req, res, next) => {
+    try {
+        if (req.user) res.locals.user = req.user;
+        if (req.session.cart)
+            res.locals.cart = req.session.cart || {};
+        next();
+    } catch (error) {
+        next(error);
+        // res.redirect('/');
+    }
+});
+
+//Set routing for admin panel
 app.use('/admin', (req, res, next) => {
     res.sendFile(
         path.join(
@@ -45,13 +76,16 @@ app.use('/admin', (req, res, next) => {
         ),
     );
 });
+
+//Set routing for client sites
 app.use('/', indexRouter);
-// catch 404 and forward to error handler
+
+// Catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
 });
 
-// error handler
+// Error handler
 app.use(function (err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
