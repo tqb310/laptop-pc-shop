@@ -6,10 +6,10 @@ exports.getLogin = async (req, res) => {
     res.render('pages/login');
 };
 
-exports.postLogin = (req, res) => {
+exports.postLogin = async (req, res) => {
     try {
-        const userCart = CartModel.findOne({
-            userId: req.user.id,
+        const userCart = await CartModel.findOne({
+            userId: req.user.user.id,
         });
 
         if (
@@ -17,13 +17,8 @@ exports.postLogin = (req, res) => {
             req.session.passport.user &&
             req.session.passport.user.cart
         ) {
-            if (!userCart.items) {
-                const createdCart = new CartModel(
-                    req.session.passport.user.cart,
-                );
-                createdCart.userId = req.user.user.id;
-                createdCart.save();
-            } else {
+            if (userCart) {
+                console.log('HAVE USERCART');
                 // Add user's cart to session
                 const notLoggedInCart =
                     new NotLoggedInCartModel(
@@ -34,6 +29,13 @@ exports.postLogin = (req, res) => {
                 req.session.cart = notLoggedInCart;
                 // Add session cart to user's cart
                 userCart.concatCart(notLoggedInCart);
+            } else {
+                console.log('NO USERCART');
+                const createdCart = new CartModel(
+                    req.session.passport.user.cart,
+                );
+                createdCart.userId = req.user.user.id;
+                createdCart.save();
             }
         }
 

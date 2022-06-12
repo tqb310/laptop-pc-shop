@@ -46,7 +46,8 @@ cartSchema.methods.addProduct = function (product) {
 };
 
 cartSchema.methods.concatCart = function (cart) {
-    console.log('CONCATCART');
+    if (cart.items && cart.items) {
+    }
 };
 
 module.exports = mongoose.model('cart', cartSchema);

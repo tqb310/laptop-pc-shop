@@ -21,7 +21,19 @@ class NotLoggedInCartModel {
 
     concatCart(cart) {
         if (cart.items && cart.items.length) {
-            this.items = this.items.concat(cart.items);
+            cart.items.forEach((cartItem, index) => {
+                const dupItemIndex = this.items.findIndex(
+                    item =>
+                        item.productId.equals(
+                            cartItem.productId,
+                        ),
+                );
+                if (dupItemIndex !== -1) {
+                    this.items[dupItemIndex].qty++;
+                } else {
+                    this.items.push(cartItem);
+                }
+            });
             this.totalCost += cart.totalCost;
             this.totalQty += cart.totalQty;
         }
