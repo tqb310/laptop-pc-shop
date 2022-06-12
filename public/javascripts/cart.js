@@ -56,3 +56,14 @@ function cartCalcFinishPrice(id) {
     );
     cartCalcTotalPrice();
 }
+
+function removeProductInCart(id) {
+    let table = document.querySelector(
+        '#cart-product > tbody',
+    );
+    let product = document.getElementById(
+        `cart-product-${id}`,
+    );
+    table.removeChild(product);
+    cartCalcTotalPrice();
+}

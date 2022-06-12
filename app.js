@@ -9,6 +9,7 @@ var mongoSessionStore = require('connect-mongodb-session')(
 );
 var flash = require('connect-flash');
 var passport = require('passport');
+var ProductService = require('./services/ProductService');
 require('dotenv').config();
 
 var app = express();
@@ -63,10 +64,26 @@ app.use((req, res, next) => {
         )
             req.session.cart =
                 req.session.passport.user.cart;
-        if (req.session.cart)
-            res.locals.cart = req.session.cart || {};
-
-        next();
+        console.log(req.session.cart);
+        if (req.session.cart) {
+            let items = req.session.cart.items.map(
+                async item => {
+                    const productData =
+                        await ProductService.getProductById(
+                            item.productId,
+                        );
+                    return productData;
+                },
+            );
+            Promise.all(items).then(productData => {
+                const cart = {
+                    ...req.session.cart,
+                    items: productData,
+                };
+                res.locals.cart = cart || {};
+                next();
+            });
+        }
     } catch (error) {
         next(error);
         // res.redirect('/');
