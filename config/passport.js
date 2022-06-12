@@ -2,12 +2,15 @@ const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
 const UserModel = require('../models/User');
 
-passport.serializeUser((user, done) => {
-    done(null, user.id);
+passport.serializeUser((result, done) => {
+    done(null, {
+        userId: result.user.id,
+        cart: result.cart || {},
+    });
 });
 
-passport.deserializeUser((userId, done) => {
-    UserModel.findById(userId, (err, user) => {
+passport.deserializeUser((result, done) => {
+    UserModel.findById(result.userId, (err, user) => {
         done(null, user);
     });
 });
@@ -45,11 +48,16 @@ passport.use(
                         ),
                     );
                 }
-
-                return done(null, user);
+                let result = {
+                    user,
+                };
+                if (req.session.cart) {
+                    result.cart = req.session.cart;
+                }
+                return done(null, result);
             } catch (error) {
                 console.log(error);
-                return done(error);
+                return done(error, false);
             }
         },
     ),
@@ -98,11 +106,16 @@ passport.use(
                 createdUser.email = email;
                 createdUser.password = password;
                 await createdUser.save();
-
-                return done(null, createdUser);
+                let result = {
+                    user: createdUser,
+                };
+                if (req.session.cart) {
+                    result.cart = req.session.cart;
+                }
+                return done(null, result);
             } catch (error) {
                 console.log(error);
-                return done(error);
+                return done(error, false);
             }
         },
     ),

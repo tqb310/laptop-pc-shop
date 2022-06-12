@@ -46,12 +46,7 @@ cartSchema.methods.addProduct = function (product) {
 };
 
 cartSchema.methods.concatCart = function (cart) {
-    if (cart) {
-        this.items = this.items.concat(cart.items);
-        this.totalCost += cart.totalCost;
-        this.totalQty += cart.totalQty;
-        this.save();
-    }
+    console.log('CONCATCART');
 };
 
 module.exports = mongoose.model('cart', cartSchema);

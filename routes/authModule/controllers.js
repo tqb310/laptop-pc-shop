@@ -12,22 +12,26 @@ exports.postLogin = (req, res) => {
             userId: req.user.id,
         });
 
-        if (req.session.cart) {
-            if (!userCart) {
+        if (
+            req.session.passport &&
+            req.session.passport.user &&
+            req.session.passport.user.cart
+        ) {
+            if (!userCart.items) {
                 const createdCart = new CartModel(
-                    req.session.cart,
+                    req.session.passport.user.cart,
                 );
-                createdCart.userId = req.user.id;
+                createdCart.userId = req.user.user.id;
                 createdCart.save();
             } else {
                 // Add user's cart to session
                 const notLoggedInCart =
                     new NotLoggedInCartModel(
-                        req.session.cart,
+                        req.session.passport.user.cart,
                     );
                 notLoggedInCart.concatCart(userCart);
+                // console.log(notLoggedInCart);
                 req.session.cart = notLoggedInCart;
-
                 // Add session cart to user's cart
                 userCart.concatCart(notLoggedInCart);
             }
@@ -71,4 +75,12 @@ exports.postRegister = async (req, res) => {
         req.flash('error', error.message);
         res.redirect('back');
     }
+};
+
+exports.getLogout = (req, res, next) => {
+    req.logout(err => {
+        if (err) return next(err);
+        res.redirect('/');
+    });
+    // req.session.cart = null;
 };

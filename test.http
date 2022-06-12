@@ -1,10 +1,11 @@
+#################### AUTHENTICATION #####################
 ### POST LOGIN
 POST http://localhost:9999/account/login
 Content-Type: application/json
 
 {
     "email": "quocbao@gmail.com",
-    "password": "quocbao12"
+    "password": "quocbao123"
 }
 
 ### POST REGISTER
@@ -20,9 +21,23 @@ Content-Type: application/json
     "role": "user"
 }
 
+### GET LOGOUT
+GET http://localhost:9999/account/logout
+
 ### GET LOGIN
 GET http://localhost:9999/account/login
 
 
+
+#################### HOMEPAGE #####################
 ### GET HOMEPAGE
 GET http://localhost:9999
+
+
+#################### CART #####################
+### GET CART
+GET http://localhost:9999/cart
+
+
+### ADD TO CART
+GET http://localhost:9999/cart/add/62802e63a54e44e3d2575b36

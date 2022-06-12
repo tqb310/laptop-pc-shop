@@ -1,4 +1,4 @@
-import ProductService from '../services/ProductService';
+const ProductService = require('../services/ProductService');
 
 class NotLoggedInCartModel {
     constructor(cart) {
@@ -20,7 +20,7 @@ class NotLoggedInCartModel {
     }
 
     concatCart(cart) {
-        if (cart) {
+        if (cart.items && cart.items.length) {
             this.items = this.items.concat(cart.items);
             this.totalCost += cart.totalCost;
             this.totalQty += cart.totalQty;

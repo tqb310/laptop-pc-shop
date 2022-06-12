@@ -40,6 +40,11 @@ route.post(
     controller.postRegister,
 );
 
+route.get(
+    '/logout',
+    authMiddleware.isLoggedIn,
+    controller.getLogout,
+);
 module.exports = {
     URL,
     route,

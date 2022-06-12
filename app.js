@@ -56,8 +56,16 @@ app.use(passport.session());
 app.use((req, res, next) => {
     try {
         if (req.user) res.locals.user = req.user;
+        if (
+            req.session.passport &&
+            req.session.passport.user &&
+            req.session.passport.user.cart
+        )
+            req.session.cart =
+                req.session.passport.user.cart;
         if (req.session.cart)
             res.locals.cart = req.session.cart || {};
+
         next();
     } catch (error) {
         next(error);
