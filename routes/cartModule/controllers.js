@@ -2,7 +2,6 @@ const Cart = require('../../models/Cart');
 const ProductService = require('../../services/ProductService');
 
 exports.getCartPage = (req, res, next) => {
-    console.log(res.locals.cart);
     res.render('pages/cart', { title: 'Users' });
 };
 
@@ -18,8 +17,9 @@ exports.addToCart = async (req, res, next) => {
         }
         if (!userCart) {
             if (
-                req.session.passport &&
-                req.session.passport.user &&
+                // req.session.passport &&
+                // req.session.passport.user &&
+                // req.session.passport.user.cart
                 req.session.cart
             ) {
                 userCart = new Cart(req.session.cart);

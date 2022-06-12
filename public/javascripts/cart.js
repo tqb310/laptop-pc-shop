@@ -2,9 +2,12 @@ let minAmount = 1;
 let totalPrice = document.getElementById(`totalprice`);
 
 function incAmount(id) {
+    console.log(id);
     let amount = document.getElementById(
         `cartproduct-amount-${id}`,
     );
+    console.log(`cartproduct-amount-${id}`);
+    addProducttoCart(id);
     amount.innerText = parseInt(amount.innerText) + 1;
     cartCalcFinishPrice(id);
 }
