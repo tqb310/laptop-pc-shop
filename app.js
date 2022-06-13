@@ -64,6 +64,7 @@ app.use((req, res, next) => {
         )
             req.session.cart =
                 req.session.passport.user.cart;
+        // console.log(req.session.cart);
         if (req.session.cart) {
             let items = req.session.cart.items.map(
                 async item => {

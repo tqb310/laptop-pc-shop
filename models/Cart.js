@@ -45,8 +45,26 @@ cartSchema.methods.addProduct = function (product) {
     );
 };
 
-cartSchema.methods.concatCart = function (cart) {
-    console.log('CONCATCART');
+cartSchema.methods.concatCart = async function (cart) {
+    if (cart.items && cart.items.length) {
+        cart.items.forEach((cartItem, index) => {
+            const dupItemIndex = this.items.findIndex(
+                item =>
+                    item.productId.equals(
+                        cartItem.productId,
+                    ),
+            );
+            if (dupItemIndex !== -1) {
+                this.items[dupItemIndex].qty +=
+                    cartItem.qty;
+            } else {
+                this.items.push(cartItem);
+            }
+        });
+        this.totalCost += cart.totalCost;
+        this.totalQty += cart.totalQty;
+        await this.save();
+    }
 };
 
 module.exports = mongoose.model('cart', cartSchema);
