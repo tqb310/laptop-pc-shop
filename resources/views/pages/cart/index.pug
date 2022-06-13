@@ -9,12 +9,12 @@ mixin ProductInCart()
         td(class="money" id=`cartproduct-unitprice-${attributes.id}`)=attributes.unitPrice
         td(class="amount")
             .amount-container
-                button(onclick=`decAmount(${attributes.id})`) -
+                button(onclick=`decAmount('${attributes.id}')`) -
                 span(id=`cartproduct-amount-${attributes.id}`)=attributes.amount
-                button(onclick=`incAmount(${attributes.id})`) +
+                button(onclick=`incAmount('${attributes.id}')`) +
         td(class="money finishprice" id=`cartproduct-finishprice-${attributes.id}` )=attributes.price
         td(class="remove")
-            button(onclick=`removeProductInCart(${attributes.id})`) X
+            button(onclick=`removeProductInCart('${attributes.id}')`) X
     
 block content
     .cart 
@@ -35,13 +35,13 @@ block content
                     th(class='col-1')  Thành tiền
                     th(class='col-1')  Xóa
                 each product in cart.items
-                    +ProductInCart(class="", imgLink=product.image[0],title=product.name,unitPrice=product.discountedPrice,price=0, id=product.productId,amount=product.qty )
+                    +ProductInCart(class="", imgLink=product.image[0],title=product.name,unitPrice=product.discountedPrice,price=0, id=product._id,amount=product.qty )
                 //- +ProductInCart(class="", imgLink="//bizweb.dktcdn.net/thumb/small/100/329/122/products/laptop-gaming-asus-rog-zephyrus-g15-ga503rw-ln100w.png", title="Laptop Gaming Asus ROG Zephyrus G15 GA503RW-LN100W (Ryzen 7 6800H, RTX 3070 Ti 8GB, Ram 32GB DDR5, SSD 1TB, 15.6 Inch IPS 240Hz WQHD)",unitPrice="60.990.000",price="60.990.000", id=2,amount=2)
                 
                     
                 tr( class=`totalprice`)
                     td(colspan="6" class="totalprice pe-5")  Tổng tiền: 
-                        span(id=`totalprice` class='money text-success')    121.980.000
+                        span(id=`totalprice` class='money text-success')    0
             div(class='my-5 d-flex justify-content-end')
                 button(class="btn btn-primary me-2")
                     a(href='/' class='text-light')  Tiếp tục mua hàng 

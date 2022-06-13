@@ -2,6 +2,13 @@ const Product = require('../models/Product');
 
 /**
  *
+ * @returns list of product
+ */
+exports.getAllProduct = async () => {
+    return await Product.find();
+};
+/**
+ *
  * @param {*} categoryId find by category id. if there is no id, it will find all products
  * @returns list of product
  */
@@ -15,6 +22,12 @@ exports.getProductByCategoryId = async (
 
 exports.getProductById = async id => {
     return (products = await Product.findById(id));
+};
+
+exports.getProductBySlug = async slug => {
+    return (products = await Product.findOne({
+        slug: slug,
+    }));
 };
 
 /**

@@ -36,7 +36,7 @@ app.use(
     session({
         secret: process.env.SECRET_KEY,
         saveUninitialized: false,
-        cookie: { maxAge: 1000 * 60 * 10 },
+        cookie: { maxAge: 1000 * 60 * 3600 },
         resave: false,
         store: new mongoSessionStore({
             uri: process.env.DATABASE_URI,
@@ -72,6 +72,7 @@ app.use((req, res, next) => {
                         await ProductService.getProductById(
                             item.productId,
                         );
+                    productData.qty = item.qty;
                     return productData;
                 },
             );
@@ -80,10 +81,12 @@ app.use((req, res, next) => {
                     ...req.session.cart,
                     items: productData,
                 };
-                res.locals.cart = cart || {};
-                next();
+                console.log(cart);
+                res.locals.cart = cart || { items: [] };
+                return next();
             });
         } else {
+            res.locals.cart = { items: [] };
             next();
         }
     } catch (error) {

@@ -1,7 +1,6 @@
 extends ../../layouts/main
 
 block content
-    - var promotedProducts = [{imgLink: "https://bizweb.dktcdn.net/100/329/122/products/laptop-msi-prestige-14-a11sc-203vn.png?v=1642654754000",title: "Laptop MSI Prestige 14 A11SC-203VN (i7-1195G7, GTX 1650 4GB, Ram 16GB DDR4, SSD 512GB, 14 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000", discount: 25},{imgLink: "https://bizweb.dktcdn.net/100/329/122/products/laptop-hp-probook-430-g8-614k9pa.png?v=1649239194000",title: "Laptop HP Probook 430 G8 614K9PA (i5-1135G7, Iris Xe Graphics, Ram 8GB, SSD 256GB, 13.3 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},{imgLink: "https://bizweb.sapocdn.net/thumb/medium/100/329/122/products/laptop-lenovo-yoga-slim-7-pro-14ihu5-o-82nh00aevn.png?v=1651221446000",title: "Laptop MSI Prestige 14 A11SC-203VN (i7-1195G7, GTX 1650 4GB, Ram 16GB DDR4, SSD 512GB, 14 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},{imgLink: "https://bizweb.sapocdn.net/thumb/medium/100/329/122/products/laptop-lenovo-yoga-slim-7-pro-14ihu5-o-82nh00aevn.png?v=1651221446000",title: "Laptop MSI Prestige 14 A11SC-203VN (i7-1195G7, GTX 1650 4GB, Ram 16GB DDR4, SSD 512GB, 14 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},{imgLink: "https://bizweb.dktcdn.net/100/329/122/products/laptop-msi-prestige-14-a11sc-203vn.png?v=1642654754000",title: "Laptop MSI Prestige 14 A11SC-203VN (i7-1195G7, GTX 1650 4GB, Ram 16GB DDR4, SSD 512GB, 14 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},{imgLink: "https://bizweb.dktcdn.net/100/329/122/products/laptop-msi-prestige-14-a11sc-203vn.png?v=1642654754000",title: "Laptop MSI Prestige 14 A11SC-203VN (i7-1195G7, GTX 1650 4GB, Ram 16GB DDR4, SSD 512GB, 14 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000", discount: 15},]
     .container
         .row.my-5
             .col-9
@@ -24,13 +23,13 @@ block content
             h2.text-uppercase.promoted-section__title Khuyến mãi hot
             .products-list.row.py-3        
                 each product in promotedProducts
-                    +Product(class="col-sm-2", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice, discount=product.discount, layout="d-block")
+                    +Product(class="col-sm-2", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice, discount=product.discount, layout="d-block", slug=product.slug)
         section.mt-3
             +SectionTitle(title="Laptop")
             .products-list.row.py-5
                 .col-9.row
                     each product in promotedProducts
-                        +Product(class="col-sm-3", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice,discount=product.discount, layout="d-block")
+                        +Product(class="col-sm-3", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice,discount=product.discount, layout="d-block", slug=product.slug)
                 .col-3.d-flex.flex-column.align-items-end
                     figure 
                         img(src="https://bizweb.sapocdn.net/100/329/122/themes/835213/assets/banner_1_fashion.png?1652504084383", alt="error when loading..." class="img-responsive" width="263px")
@@ -46,6 +45,6 @@ block content
                         img(src="https://bizweb.sapocdn.net/100/329/122/themes/835213/assets/banner_2_electronic4.png?1652504084383", alt="error when loading..." class="img-responsive" width="263px")
                 .col-9.row
                     each product in promotedProducts
-                        +Product(class="col-sm-3", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice, discount=product.discount, layout="d-block")
+                        +Product(class="col-sm-3", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice, discount=product.discount, layout="d-block", slug=product.slug)
                 
                 

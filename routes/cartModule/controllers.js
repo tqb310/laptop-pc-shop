@@ -2,7 +2,6 @@ const ProductService = require('../../services/ProductService');
 const CartModel = require('../../models/Cart');
 
 exports.getCartPage = (req, res, next) => {
-    console.log(res.locals.cart);
     res.render('pages/cart', { title: 'Users' });
 };
 
