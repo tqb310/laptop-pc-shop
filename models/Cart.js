@@ -55,7 +55,8 @@ cartSchema.methods.concatCart = async function (cart) {
                     ),
             );
             if (dupItemIndex !== -1) {
-                this.items[dupItemIndex].qty++;
+                this.items[dupItemIndex].qty +=
+                    cartItem.qty;
             } else {
                 this.items.push(cartItem);
             }

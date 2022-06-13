@@ -41,3 +41,11 @@ GET http://localhost:9999/cart
 
 ### ADD TO CART
 GET http://localhost:9999/cart/add/62802e63a54e44e3d2575b36
+
+
+### REDUCE QUANTITY
+GET http://localhost:9999/cart/reduce/62802e63a54e44e3d2575b36
+
+
+### REMOVE AN ITEM
+GET http://localhost:9999/cart/remove/62802e63a54e44e3d2575b36
