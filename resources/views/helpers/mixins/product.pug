@@ -13,6 +13,6 @@ mixin Product()
                 if attributes.discount
                     .position-absolute.top-0.product-discount= '-'+attributes.discount+'%'
         .product-actions.position-absolute
-            a(href="https://google.com" class="product-actions__purchase flex-grow-1") Mua ngay
+            a(href=`http://localhost:9999/cart/add/${attributes.id}`, class="product-actions__purchase flex-grow-1") Mua ngay
             .product-actions__preview Xem nhanh 
 

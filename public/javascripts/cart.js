@@ -2,14 +2,13 @@ let minAmount = 1;
 let totalPrice = document.getElementById(`totalprice`);
 
 function incAmount(id) {
-    console.log(id);
     let amount = document.getElementById(
         `cartproduct-amount-${id}`,
     );
-    console.log(`cartproduct-amount-${id}`);
-    addProducttoCart(id);
-    amount.innerText = parseInt(amount.innerText) + 1;
-    cartCalcFinishPrice(id);
+    addProductCart(id).then(() => {
+        amount.innerText = parseInt(amount.innerText) + 1;
+        cartCalcFinishPrice(id);
+    });
 }
 
 function decAmount(id) {
@@ -17,9 +16,12 @@ function decAmount(id) {
         `cartproduct-amount-${id}`,
     );
     let newAmount = parseInt(amount.innerText) - 1;
-    if (newAmount - minAmount < 0) newAmount = minAmount;
-    amount.innerText = newAmount;
-    cartCalcFinishPrice(id);
+    if (newAmount - minAmount >= 0) {
+        reduceProductCart(id).then(() => {
+            amount.innerText = newAmount;
+            cartCalcFinishPrice(id);
+        });
+    }
 }
 
 function cartOnLoad() {
@@ -61,12 +63,14 @@ function cartCalcFinishPrice(id) {
 }
 
 function removeProductInCart(id) {
-    let table = document.querySelector(
-        '#cart-product > tbody',
-    );
-    let product = document.getElementById(
-        `cart-product-${id}`,
-    );
-    table.removeChild(product);
-    cartCalcTotalPrice();
+    removeProductCart(id).then(() => {
+        let table = document.querySelector(
+            '#cart-product > tbody',
+        );
+        let product = document.getElementById(
+            `cart-product-${id}`,
+        );
+        table.removeChild(product);
+        cartCalcTotalPrice();
+    });
 }

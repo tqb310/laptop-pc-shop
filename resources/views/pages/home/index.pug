@@ -23,13 +23,13 @@ block content
             h2.text-uppercase.promoted-section__title Khuyến mãi hot
             .products-list.row.py-3        
                 each product in promotedProducts
-                    +Product(class="col-sm-2", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice, discount=product.discount, layout="d-block", slug=product.slug)
+                    +Product(class="col-sm-2", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice, discount=product.discount, layout="d-block", slug=product.slug, id=product.id)
         section.mt-3
             +SectionTitle(title="Laptop")
             .products-list.row.py-5
                 .col-9.row
                     each product in promotedProducts
-                        +Product(class="col-sm-3", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice,discount=product.discount, layout="d-block", slug=product.slug)
+                        +Product(class="col-sm-3", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice,discount=product.discount, layout="d-block", slug=product.slug, id=product.id)
                 .col-3.d-flex.flex-column.align-items-end
                     figure 
                         img(src="https://bizweb.sapocdn.net/100/329/122/themes/835213/assets/banner_1_fashion.png?1652504084383", alt="error when loading..." class="img-responsive" width="263px")
@@ -45,6 +45,6 @@ block content
                         img(src="https://bizweb.sapocdn.net/100/329/122/themes/835213/assets/banner_2_electronic4.png?1652504084383", alt="error when loading..." class="img-responsive" width="263px")
                 .col-9.row
                     each product in promotedProducts
-                        +Product(class="col-sm-3", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice, discount=product.discount, layout="d-block", slug=product.slug)
+                        +Product(class="col-sm-3", imgLink=product.imgLink, title=product.title, discountedPrice=product.discountedPrice, originalPrice=product.originalPrice, discount=product.discount, layout="d-block", slug=product.slug, id=product.id)
                 
                 

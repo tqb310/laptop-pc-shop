@@ -142,9 +142,11 @@ exports.removeCart = async (req, res, next) => {
             'success',
             'Đã xóa 1 sản phẩm khỏi giỏ hàng',
         );
-        res.redirect('/cart');
+        // res.redirect('/cart');
+        res.status(200).json('ok');
     } catch (error) {
         req.flash('error', error.message);
-        res.redirect('back');
+        // res.redirect('back');
+        res.status(500).json('error');
     }
 };
