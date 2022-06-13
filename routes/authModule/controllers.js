@@ -1,8 +1,8 @@
 const CartModel = require('../../models/Cart');
-const NotLoggedInCartModel = require('../../models/NotloggedInCart');
+// const NotLoggedInCartModel = require('../../models/NotloggedInCart');
 
 exports.getLogin = async (req, res) => {
-    console.log(req.flash('error'));
+    // console.log(req.flash('error'));
     res.render('pages/login');
 };
 
@@ -18,24 +18,24 @@ exports.postLogin = async (req, res) => {
             req.session.passport.user.cart
         ) {
             if (userCart) {
-                console.log('HAVE USERCART');
+                // console.log('HAVE USERCART');
                 // Add user's cart to session
-                const notLoggedInCart =
-                    new NotLoggedInCartModel(
-                        req.session.passport.user.cart,
-                    );
-                notLoggedInCart.concatCart(userCart);
-                // console.log(notLoggedInCart);
-                req.session.cart = notLoggedInCart;
+                await userCart.concatCart(
+                    req.session.passport.user.cart,
+                );
                 // Add session cart to user's cart
-                userCart.concatCart(notLoggedInCart);
+                req.session.cart = userCart;
             } else {
-                console.log('NO USERCART');
+                // console.log('NO USERCART');
                 const createdCart = new CartModel(
                     req.session.passport.user.cart,
                 );
                 createdCart.userId = req.user.user.id;
                 createdCart.save();
+            }
+        } else {
+            if(userCart){
+                req.session.cart = userCart;
             }
         }
 

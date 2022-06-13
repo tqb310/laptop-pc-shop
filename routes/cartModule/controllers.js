@@ -18,8 +18,9 @@ exports.addToCart = async (req, res, next) => {
         }
         if (!userCart) {
             if (
-                req.session.passport &&
-                req.session.passport.user &&
+                // req.session.passport &&
+                // req.session.passport.user &&
+                // req.session.passport.user.cart
                 req.session.cart
             ) {
                 userCart = new Cart(req.session.cart);
