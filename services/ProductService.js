@@ -24,6 +24,12 @@ exports.getProductById = async id => {
     return (products = await Product.findById(id));
 };
 
+exports.getProductBySlug = async slug => {
+    return (products = await Product.findOne({
+        slug: slug,
+    }));
+};
+
 /**
  *
  * @param {*} categoryId Category id that product belong to

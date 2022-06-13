@@ -22,7 +22,7 @@ module.exports = mongoose.model(
                 type: String,
                 required: true,
             },
-            url: {
+            slug: {
                 type: String,
                 default: '#',
             },

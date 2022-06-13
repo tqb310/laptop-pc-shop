@@ -1,6 +1,6 @@
 mixin Product()
     div(class="product-container position-relative " + attributes.class)
-        a(href="#", class=attributes.layout + " position-relative")
+        a(href='/product/' + attributes.slug, class=attributes.layout + " position-relative")
             figure.w-100
                 img(src=attributes.imgLink, alt="Error while loading image...", width="205px", class="img-responsive")
             div.w-100

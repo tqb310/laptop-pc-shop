@@ -3,14 +3,14 @@ extends ../../layouts/main
 block content
     - var promotedProducts = [{imgLink: "https://bizweb.dktcdn.net/100/329/122/products/laptop-msi-prestige-14-a11sc-203vn.png?v=1642654754000",title: "Laptop MSI Prestige 14 A11SC-203VN (i7-1195G7, GTX 1650 4GB, Ram 16GB DDR4, SSD 512GB, 14 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},{imgLink: "https://bizweb.dktcdn.net/100/329/122/products/laptop-hp-probook-430-g8-614k9pa.png?v=1649239194000",title: "Laptop HP Probook 430 G8 614K9PA (i5-1135G7, Iris Xe Graphics, Ram 8GB, SSD 256GB, 13.3 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},{imgLink: "https://bizweb.sapocdn.net/thumb/medium/100/329/122/products/laptop-lenovo-yoga-slim-7-pro-14ihu5-o-82nh00aevn.png?v=1651221446000",title: "Laptop MSI Prestige 14 A11SC-203VN (i7-1195G7, GTX 1650 4GB, Ram 16GB DDR4, SSD 512GB, 14 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},{imgLink: "https://bizweb.sapocdn.net/thumb/medium/100/329/122/products/laptop-lenovo-yoga-slim-7-pro-14ihu5-o-82nh00aevn.png?v=1651221446000",title: "Laptop MSI Prestige 14 A11SC-203VN (i7-1195G7, GTX 1650 4GB, Ram 16GB DDR4, SSD 512GB, 14 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},{imgLink: "https://bizweb.dktcdn.net/100/329/122/products/laptop-msi-prestige-14-a11sc-203vn.png?v=1642654754000",title: "Laptop MSI Prestige 14 A11SC-203VN (i7-1195G7, GTX 1650 4GB, Ram 16GB DDR4, SSD 512GB, 14 Inch IPS FHD)",discountedPrice:"24,290,000", originalPrice:"33,900,000"},]
     section.product-detail__header.py-4.text-success.border.border-bottom.mb-5
-        .container Laptop Gaming Asus TUF Gaming A15 FA507RE-HN007W (Ryzen 7 6800H, RTX 3050 Ti 4GB, Ram 8GB DDR5, SSD 512GB, 15.6 Inch IPS 144Hz FHD)
+        .container=product.name
     section.product-detail__body.container
         .row
             .col-9.row.pe-5
                 figure.col-5
                     img(src="https://bizweb.sapocdn.net/thumb/1024x1024/100/329/122/products/laptop-gaming-asus-tuf-gaming-a15-fa507re-hn007w.png?v=1652324057273", alt="error when loading...", class="img-responsive")
                 .col-7
-                    h1.product-detail__body-title Laptop Gaming Asus TUF Gaming A15 FA507RE-HN007W (Ryzen 7 6800H, RTX 3050 Ti 4GB, Ram 8GB DDR5, SSD 512GB, 15.6 Inch IPS 144Hz FHD)
+                    h1.product-detail__body-title=product.name
                     .rate.mt-3.d-flex
                         .rate-stars
                             i.fa-solid.fa-star.fa-lg.rated.text-warning
@@ -22,14 +22,14 @@ block content
                             a(href="#" class="link-primary") Xem 7 đánh giá
                     .group-status.mt-4
                         span Thương hiệu:
-                            span.text-success.ms-1 Asus
+                            span.text-success.ms-1=product.brand
                         span.ms-3 |
                         span.ms-3 Tình trạng:
                             span.text-success.ms-1 Còn hàng                   
                     .product-price.d-flex.mt-4
-                        .product-price__discounted.lg 31.500.000
+                        .product-price__discounted.lg=product.discountedPrice
                             span.currency đ
-                        .product-price__original.lg.ms-2 35.000.000
+                        .product-price__original.lg.ms-2=product.originalPrice
                             span.currency đ
                     ul.mt-4.product-trait
                         li CPU:  Ryzen 7 5800HS (2.8GHz~4.4GHz) 8 Cores 16 Threads
@@ -60,7 +60,7 @@ block content
                         button.btn.btn-light.fs-4.fw-bold.text-uppercase.py-3.px-5 Thông số kỹ thuật
                     .border.position-relative.product-description__tab
                         .product-description__content
-                            p.lh-base Laptop Gaming Asus ROG Strix G17 G713RW-LL157W cho trải nghiệm hoàn toàn mới để chơi chơi game với khung máy siêu mỏng và bộ vi xử lý AMD Ryzen 6000 Series và GPU GeForce RTX 30 Series cho trải nghiệm mượt mà. Màn hình WQHD 17.3 inch tần số quét lên đến 240Hz cùng bộ nhớ DDR5 mang đến cho bạn trải nghiệm chơi game không gián đoạn ở bất cứ nơi đâu.
+                            p.lh-base=product.detail
                             img(src="https://bizweb.sapocdn.net/100/329/122/files/headline-dd5f27c2-b781-4971-84b6-8866cbd51892.jpg?v=1652148701634", alt="error when loading...", class="img-responsive", width="100%")
                         .show-more.position-relative
                             .overlay                        
