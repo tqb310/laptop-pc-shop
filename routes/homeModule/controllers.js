@@ -56,6 +56,7 @@ exports.homeRender = async (req, res) => {
             originalPrice: p.originalPrice,
             discount: 15,
             slug: p.slug,
+            id: p._id,
         };
     });
     console.log(product);

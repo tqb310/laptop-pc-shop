@@ -1,3 +1,5 @@
+const { response } = require('express');
+
 function toggleContent(id) {
     let contents =
         document.getElementsByClassName('row-content');
@@ -48,4 +50,32 @@ function renderMoney() {
     Array.from(moneys).map(money => {
         money.textContent = moneyFormat(money.textContent);
     });
+}
+
+function createBill() {
+    let data = {
+        information: {
+            email: $('#email')[0].value,
+            name: $('#name')[0].value,
+            phone: $('#phone')[0].value,
+            address: (() => {
+                let street = $('#address')[0].value;
+                let provinceCode = $('#province')[0].value;
+                let districtCode = $('#district')[0].value;
+                let wardCode = $('#ward')[0].value;
+                return `${street}, ${
+                    getWards(provinceCode, districtCode)[
+                        wardCode
+                    ].name
+                }, ${
+                    getDistricts(provinceCode)[districtCode]
+                        .name
+                }, ${getProvinces()[provinceCode].name}`;
+            })(),
+        },
+        paymentMethod: 1,
+    };
+    // submitBill(data)
+    //     .then(response => response.json)
+    //     .then(data => console.log(data));
 }

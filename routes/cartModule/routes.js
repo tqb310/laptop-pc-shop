@@ -22,6 +22,12 @@ route.get(
     cartMiddleware.getCartFromDBOrSession,
     cartController.removeCart,
 );
+
+route.post(
+    '/create-bill',
+    cartMiddleware.getCartFromDBOrSession,
+    cartController.createBill,
+);
 module.exports = {
     URL,
     route,
