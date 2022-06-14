@@ -11,10 +11,12 @@ block content
         .login__form
             .container
                 p.h4.mb-4 Đăng nhập tài khoản
+                p.mb-4 Nếu bạn đã có tài khoản, đăng nhập tại đây.
+                if message
+                    .alert.alert-danger.w-50= message
                 .row
                     .col-6.pe-4
-                        p.mb-4 Nếu bạn đã có tài khoản, đăng nhập tại đây.
-                        form(action="#", method="POST")
+                        form(action="/account/login", method="POST")
                             .mb-3
                                 label(class="form-label", for="login-email") Email
                                 input(type="email", class="form-control", id="login-email", name="email", placeholder="Email")
@@ -26,8 +28,7 @@ block content
                     .col-6.ps-4
                         p.mb-4 Bạn quên mật khẩu? Nhập địa chỉ email để lấy lại mật khẩu qua email.
                         form(action="#", method="POST")
-                            .mb-3
-                                label(class="form-label", for="forget-email") Email
+                            .mb-3                                
                                 input(type="email", class="form-control", id="forget-email", name="email", placeholder="Email")
                             button.btn.btn-ct-primary Lấy lại mật khẩu
                            

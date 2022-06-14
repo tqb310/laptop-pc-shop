@@ -6,14 +6,14 @@ const controller = require('./controllers');
 
 route.get(
     '/login',
-    // authMiddleware.isNotLoggedIn,
+    authMiddleware.isNotLoggedIn,
     controller.getLogin,
 );
 
 route.post(
     '/login',
     [
-        // authMiddleware.isNotLoggedIn,
+        authMiddleware.isNotLoggedIn,
         passport.authenticate('local.signin', {
             failureRedirect: '/account/login',
             failureMessage: true,

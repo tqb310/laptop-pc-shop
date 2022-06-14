@@ -9,7 +9,7 @@ exports.getLogin = async (req, res) => {
 exports.postLogin = async (req, res) => {
     try {
         const userCart = await CartModel.findOne({
-            userId: req.user.user.id,
+            userId: req.user.userId,
         });
 
         if (
@@ -34,7 +34,7 @@ exports.postLogin = async (req, res) => {
                 createdCart.save();
             }
         } else {
-            if(userCart){
+            if (userCart) {
                 req.session.cart = userCart;
             }
         }

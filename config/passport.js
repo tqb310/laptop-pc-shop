@@ -3,15 +3,14 @@ const localStrategy = require('passport-local').Strategy;
 const UserModel = require('../models/User');
 
 passport.serializeUser((result, done) => {
-    done(null, {
-        userId: result.user.id,
-        cart: result.cart || {},
-    });
+    console.log('serial', result);
+    done(null, result);
 });
 
 passport.deserializeUser((result, done) => {
     UserModel.findById(result.userId, (err, user) => {
-        done(null, user);
+        if (err) done(err);
+        else done(null, user);
     });
 });
 
@@ -34,7 +33,7 @@ passport.use(
                         false,
                         req.flash(
                             'error',
-                            "User doesn't exist",
+                            'Tài khoản không tồn tại',
                         ),
                     );
                 }
@@ -44,19 +43,19 @@ passport.use(
                         false,
                         req.flash(
                             'error',
-                            'Wrong password',
+                            'Mật khẩu không đúng',
                         ),
                     );
                 }
                 let result = {
-                    user,
+                    userId: user.id,
                 };
                 if (req.session.cart) {
                     result.cart = req.session.cart;
                 }
                 return done(null, result);
             } catch (error) {
-                console.log(error);
+                // console.log(error);
                 return done(error, false);
             }
         },
@@ -83,7 +82,7 @@ passport.use(
                         false,
                         req.flash(
                             'error',
-                            'Email already exist',
+                            'Email đã đăng ký',
                         ),
                     );
                 }
@@ -95,7 +94,7 @@ passport.use(
                         false,
                         req.flash(
                             'error',
-                            'Password must match',
+                            'Mật khẩu không khớp',
                         ),
                     );
                 }
@@ -105,9 +104,9 @@ passport.use(
                 createdUser.lastName = req.body.lastName;
                 createdUser.email = email;
                 createdUser.password = password;
-                await createdUser.save();
+                const resUser = await createdUser.save();
                 let result = {
-                    user: createdUser,
+                    userId: resUser.id,
                 };
                 if (req.session.cart) {
                     result.cart = req.session.cart;

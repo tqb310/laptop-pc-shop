@@ -4,8 +4,9 @@
     "private": true,
     "scripts": {
         "dev": "concurrently \"nodemon ./bin/www\" \"gulp scss\" \"npm run dev --prefix admin2\"",
+        "dev-client": "concurrently \"nodemon ./bin/www\" \"gulp scss\"",
         "build": "npm run build --prefix admin2 && gulp moveAdminAssetsToPublic && gulp compile-scss",
-        "start": "nodemon ./bin/www",
+        "start": "node ./bin/www",
         "watch": "sass --watch resources/scss:public/styles --style compressed"
     },
     "dependencies": {

@@ -56,6 +56,7 @@ app.use(passport.session());
 //Global variables accross routes
 app.use((req, res, next) => {
     try {
+        res.locals.message = req.flash('error')[0];
         if (req.user) res.locals.user = req.user;
         if (
             req.session.passport &&
@@ -81,12 +82,15 @@ app.use((req, res, next) => {
                     ...req.session.cart,
                     items: productData,
                 };
-                console.log(cart);
-                res.locals.cart = cart || { items: [] };
+                // console.log(cart);
+                res.locals.cart = cart || {
+                    items: [],
+                    totalQty: 0,
+                };
                 return next();
             });
         } else {
-            res.locals.cart = { items: [] };
+            res.locals.cart = { items: [], totalQty: 0 };
             next();
         }
     } catch (error) {

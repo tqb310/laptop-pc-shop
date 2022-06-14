@@ -11,23 +11,29 @@ block content
         .register__form
             .container
                 p.h4.mb-4 Đăng ký tài khoản
-                    p.mb-4 Nếu chưa có tài khoản vui lòng đăng ký tại đây                
-                    form(action="#", method="POST")
+                    p.mb-4 Nếu chưa có tài khoản vui lòng đăng ký tại đây
+                    if message
+                        .alert.alert-danger.w-50= message          
+                    form(action="/account/register", method="POST")
                         .row
                             .col-6.pe-4
                                 .mb-3
                                     label(class="form-label", for="register-family") Họ
-                                    input(type="text", class="form-control", id="register-family", name="family",placeholder="Nhập họ")
+                                    input(type="text", class="form-control", id="register-family", name="lastName",placeholder="Nhập họ")
+                                .mb-3
+                                    label(class="form-label", for="register-name") Tên
+                                    input(type="text", class="form-control", id="register-name", name="firstName", placeholder="Nhập tên")
+                            .col-6.ps-4
                                 .mb-3
                                     label(class="form-label", for="register-email") Email
                                     input(type="email", class="form-control", id="register-email", name="email",placeholder="Nhập email")
-                            .col-6.ps-4
-                                .mb-3
-                                    label(class="form-label", for="register-name") Tên
-                                    input(type="text", class="form-control", id="register-name", name="name", placeholder="Nhập tên")                                
-                                .mb-3
-                                    label(class="form-label", for="register-password") Mật khẩu
-                                    input(type="text", class="form-control", id="register-password", name="password", placeholder="Mật khẩu")
+                                .mb-3.row
+                                    .col-6
+                                        label(class="form-label", for="register-password") Mật khẩu
+                                        input(type="password", class="form-control", id="register-password", name="password", placeholder="Mật khẩu")
+                                    .col-6
+                                        label(class="form-label", for="verification-password") Mật khẩu
+                                        input(type="password", class="form-control", id="verification-password", name="verifiedPassword", placeholder="Xác nhận mật khẩu")
                         button.btn.btn-ct-primary Đăng ký
                         a(href="/account/login", class="btn btn-link") Đăng nhập
                      
