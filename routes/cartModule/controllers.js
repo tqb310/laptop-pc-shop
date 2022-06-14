@@ -150,3 +150,51 @@ exports.removeCart = async (req, res, next) => {
         res.status(500).json('error');
     }
 };
+
+exports.createBill = (req, res, next) => {
+    exports.addToCart = async (req, res, next) => {
+        const productId = req.params.id;
+        try {
+            //Get the cart, either from DB or session
+            const userCart = req.userCart || { items: [] };
+            // console.log('USER_CART ', userCart);
+
+            console.log(req.body);
+            // //Add product
+            // const productDetail =
+            //     await ProductService.getProductById(
+            //         productId,
+            //     );
+            // const itemIndex = userCart.items.findIndex(
+            //     item => item.productId.equals(productId),
+            // );
+            // console.log('ITEM_INDEX ', itemIndex);
+            // if (itemIndex !== -1) {
+            //     userCart.items[itemIndex].qty++;
+            // } else {
+            //     userCart.items.push({ productId, qty: 1 });
+            // }
+            // userCart.totalQty++;
+            // userCart.totalCost +=
+            //     productDetail.discountedPrice;
+
+            //If user logged in, add cart to user's cart
+            if (req.isAuthenticated()) {
+                userCart.userId = req.user.id;
+                userCart.save();
+            }
+
+            //Add cart to session
+            req.session.cart = userCart;
+
+            req.flash(
+                'success',
+                'Sản phẩm đã được thêm vào giỏ hàng',
+            );
+            res.redirect('/cart');
+        } catch (error) {
+            req.flash('error', error.message);
+            res.redirect('back');
+        }
+    };
+};

@@ -21,3 +21,13 @@ function removeProductCart(id) {
         },
     );
 }
+
+function submitBill(data) {
+    return fetch(
+        `http://localhost:9999/cart/create-bill`,
+        data,
+        {
+            credentials: 'same-origin',
+        },
+    );
+}

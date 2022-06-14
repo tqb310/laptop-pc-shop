@@ -5,15 +5,15 @@ block content
             .payment-infor(class='col-8 d-flex justify-content-around me-0')
                 .payment-infor-client(class='col-6 me-5')
                     h2(class='mt-3') Thông tin nhận hàng
-                    form(action="") 
+                    form
                         .input-container(class='my-3')
-                            input(class='form-input',type="text", id='email', placeholder=' ')
+                            input(class='form-input',type="email", id='email', placeholder=' ')
                             label(class='form-label',for="email")   Email 
                         .input-container(class='my-3')
                             input(class='form-input',type="text",id='name', placeholder=' ')
                             label(class='form-label',for="name")   Họ và tên
                         .input-container(class='my-3')
-                            input(class='form-input',type="text",id='phone', placeholder=' ')
+                            input(class='form-input',type="number",id='phone', placeholder=' ')
                             label(class='form-label',for="phone")   Số điện thoại
                         .input-container(class='my-3')
                             input(class='form-input',type="text",id='address', placeholder=' ')
@@ -85,19 +85,19 @@ block content
                             
             .payment-order(class='col-4')
                 .payment-order-title.px-4.mt-3
-                    h2(class='mt-3') Đơn hàng (#{products.length} sản phẩm)
+                    h2(class='mt-3') Đơn hàng (#{cart.totalQty} sản phẩm)
                 .payment-order-content.border-top.ps-5.mt-3
                     .payment-product-order.border-bottom
                         table
-                            each product in products 
+                            each product in cart.items
                                 tr
                                     td
                                         .img-wrapper.overflow-hidden
-                                            img(src=product.imgLink, class="img-thumbnail")
+                                            img(src=product.image[0], class="img-thumbnail")
                                     td.ps-3.pe-5.fs-4
-                                        .product-title=product.title
+                                        .product-title=product.name
                                     td
-                                        span.money=product.discountedPrice
+                                        span.money=product.discountedPrice*product.qty
                     .payment-order-price 
                         - var finishPrice = 0; 
                                 - for(var i = 0; i < products.length; i++)
@@ -105,16 +105,16 @@ block content
                         .border-bottom.fs-4.py-4
                             .provisional.d-flex.justify-content-between.mb-4
                                 span Tạm tính
-                                span(class='money')=finishPrice
+                                span(class='money')=cart.totalCost
                             .payment-delivery-price.d-flex.justify-content-between
                                 span Phí vận chuyển 
                                 span Miễn phí
                         .payment-finish-price.d-flex.justify-content-between.mt-3.fs-3 
                             span   Tổng cộng 
-                            span(class='money')=finishPrice
+                            span(class='money')=cart.totalCost
                         .payment-order-action.d-flex.justify-content-between.mt-4
                             a.fs-4(href='/cart')   Quay về giỏ hàng 
-                            button.btn.btn-success Đặt hàng
+                            button.btn.btn-success(onclick="createBill()")  Đặt hàng
     script.
         window.onload = function(){
             renderProvince()
