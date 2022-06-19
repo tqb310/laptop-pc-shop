@@ -1,34 +1,19 @@
-var express = require('express');
-var router = express.Router();
-const {
-    route: authRoute,
-    URL,
-} = require('./authModule/routes');
-// const sessionMiddleware =
-//     require('./authModule/middlewares').sessionMiddleware;
-const fs = require('fs');
+const homeRoute = require('./home.route');
+const authRoute = require('./auth.route');
+const cartRoute = require('./cart.route');
+const categoryRoute = require('./category.route');
+const paymentRoute = require('./payment.route');
+const productRoute = require('./product.route');
+const profileRoute = require('./profile.route');
 
-const walkSync = function (dir, filelist) {
-    const files = fs.readdirSync(dir);
-    filelist = filelist || [];
-    files.forEach(function (file) {
-        if (fs.statSync(dir + '/' + file).isDirectory()) {
-            filelist.push('/' + file + '/routes.js');
-        }
-    });
-    return filelist;
-};
-
-// router.use(sessionMiddleware);
-
-router.use('/' + URL, authRoute);
-walkSync('./routes')
-    .filter(file => {
-        return file.split('/')[1] != 'authModule';
-    })
-    .map(file => {
-        const route = require(`./${file}`);
-        router.use(`/${route.URL}`, route.route);
-    });
+function router(app) {
+    app.use('/account', authRoute);
+    app.use('/cart', cartRoute);
+    app.use('/payment', paymentRoute);
+    app.use('/category', categoryRoute);
+    app.use('/product', productRoute);
+    app.use('/profile', profileRoute);
+    app.use('/', homeRoute);
+}
 
 module.exports = router;

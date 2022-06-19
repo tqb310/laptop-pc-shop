@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var session = require('express-session');
-var indexRouter = require('./routes/index');
+var userRouter = require('./routes/index');
 var mongoSessionStore = require('connect-mongodb-session')(
     session,
 );
@@ -112,7 +112,7 @@ app.use('/admin', (req, res, next) => {
 });
 
 //Set routing for client sites
-app.use('/', indexRouter);
+userRouter(app);
 
 // Catch 404 and forward to error handler
 app.use(function (req, res, next) {

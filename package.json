@@ -10,6 +10,7 @@
         "watch": "sass --watch resources/scss:public/styles --style compressed"
     },
     "dependencies": {
+        "admin": "file:admin2",
         "bcrypt": "^5.0.1",
         "connect-flash": "^0.1.1",
         "connect-mongodb-session": "^3.1.1",

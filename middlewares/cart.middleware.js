@@ -1,4 +1,4 @@
-const Cart = require('../../models/Cart');
+const Cart = require('../models/Cart');
 
 exports.getCartFromDBOrSession = async (req, res, next) => {
     let userCart;

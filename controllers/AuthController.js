@@ -1,11 +1,11 @@
-const CartModel = require('../../models/Cart');
-// const NotLoggedInCartModel = require('../../models/NotloggedInCart');
+const CartModel = require('../models/Cart');
 
-exports.getLogin = async (req, res) => {
-    // console.log(req.flash('error'));
+//[GET] '/account/login'
+exports.getLoginPage = (req, res, next) => {
     res.render('pages/login');
 };
 
+//[POST] '/account/login'
 exports.postLogin = async (req, res) => {
     try {
         const userCart = await CartModel.findOne({
@@ -18,7 +18,6 @@ exports.postLogin = async (req, res) => {
             req.session.passport.user.cart
         ) {
             if (userCart) {
-                // console.log('HAVE USERCART');
                 // Add user's cart to session
                 await userCart.concatCart(
                     req.session.passport.user.cart,
@@ -26,7 +25,6 @@ exports.postLogin = async (req, res) => {
                 // Add session cart to user's cart
                 req.session.cart = userCart;
             } else {
-                // console.log('NO USERCART');
                 const createdCart = new CartModel(
                     req.session.passport.user.cart,
                 );
@@ -53,10 +51,12 @@ exports.postLogin = async (req, res) => {
     }
 };
 
-exports.getRegister = (req, res) => {
+//[GET] '/account/register'
+exports.getRegisterPage = (req, res, next) => {
     res.render('pages/register');
 };
 
+//[POST] '/account/register'
 exports.postRegister = async (req, res) => {
     try {
         //If there is a cart session, save it to the user's cart in DB
@@ -79,6 +79,7 @@ exports.postRegister = async (req, res) => {
     }
 };
 
+//[GET] '/account/logout'
 exports.getLogout = (req, res, next) => {
     req.logout(err => {
         if (err) return next(err);
